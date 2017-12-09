@@ -1,0 +1,2 @@
+class CourseQuiz < ApplicationRecord
+end

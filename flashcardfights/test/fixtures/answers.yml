@@ -1,13 +1,13 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: answers
 #
-#  id              :integer          not null, primary key
-#  username        :string
-#  password_digest :string
-#  session_token   :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id          :integer          not null, primary key
+#  question_id :integer          not null
+#  body        :string
+#  is_correct  :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

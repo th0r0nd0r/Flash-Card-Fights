@@ -11,4 +11,16 @@
 #
 
 class Question < ApplicationRecord
+  has_many :answers
+
+  belongs_to :author,
+  class_name: "User",
+  foreign_key: :author_id,
+  primary_key: :id
+
+  belongs_to :course
+
+  has_many :quiz_questions
+  has_many :quizzes, through: :quiz_questions
+
 end

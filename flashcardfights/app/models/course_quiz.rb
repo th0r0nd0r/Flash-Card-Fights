@@ -1,17 +1,15 @@
 # == Schema Information
 #
-# Table name: course_subjects
+# Table name: course_quizzes
 #
 #  id         :integer          not null, primary key
 #  course_id  :integer          not null
-#  subject_id :integer          not null
+#  quiz_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class CourseSubject < ApplicationRecord
-
+class CourseQuiz < ApplicationRecord
   belongs_to :course
-  belongs_to :subject
-
+  belongs_to :quiz
 end

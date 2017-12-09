@@ -10,4 +10,8 @@
 #
 
 class Course < ApplicationRecord
+  
+
+  
+  
 end

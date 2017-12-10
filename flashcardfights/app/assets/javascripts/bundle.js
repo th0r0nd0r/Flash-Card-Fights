@@ -46757,11 +46757,11 @@ var App = function App() {
     _react2.default.createElement(
       _reactRouterDom.Switch,
       null,
-      _react2.default.createElement(_authorization_util.RequireLoginRoute, { exact: true, path: '/', component: _greeting_container2.default }),
-      _react2.default.createElement(_authorization_util.RequireLoginRoute, { path: '/login', component: _session_form_container2.default }),
-      _react2.default.createElement(_authorization_util.RequireLoginRoute, { path: '/signup', component: _session_form_container2.default }),
-      _react2.default.createElement(_authorization_util.LoggedinRoute, { path: '/dashboard', component: _dashboard_container2.default }),
-      _react2.default.createElement(_authorization_util.LoggedinRoute, { path: '/quiz/:quiz_id', component: _quiz_container2.default })
+      _react2.default.createElement(_authorization_util.AuthRoute, { exact: true, path: '/', component: _greeting_container2.default }),
+      _react2.default.createElement(_authorization_util.AuthRoute, { path: '/login', component: _session_form_container2.default }),
+      _react2.default.createElement(_authorization_util.AuthRoute, { path: '/signup', component: _session_form_container2.default }),
+      _react2.default.createElement(_authorization_util.ProtectedRoute, { path: '/dashboard', component: _dashboard_container2.default }),
+      _react2.default.createElement(_authorization_util.ProtectedRoute, { path: '/quiz/:quiz_id', component: _quiz_container2.default })
     )
   );
 };
@@ -50388,7 +50388,7 @@ var withRouter = function withRouter(Component) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.LoggedinRoute = exports.RequireLoginRoute = undefined;
+exports.ProtectedRoute = exports.AuthRoute = undefined;
 
 var _react = __webpack_require__(4);
 
@@ -50400,7 +50400,7 @@ var _reactRouterDom = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var requireLogin = function requireLogin(_ref) {
+var Auth = function Auth(_ref) {
   var Component = _ref.component,
       path = _ref.path,
       loggedIn = _ref.loggedIn;
@@ -50410,7 +50410,7 @@ var requireLogin = function requireLogin(_ref) {
     } });
 };
 
-var LoggedIn = function LoggedIn(_ref2) {
+var Protected = function Protected(_ref2) {
   var Component = _ref2.component,
       path = _ref2.path,
       loggedIn = _ref2.loggedIn;
@@ -50426,9 +50426,8 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-var RequireLoginRoute = exports.RequireLoginRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(requireLogin));
-
-var LoggedinRoute = exports.LoggedinRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(LoggedIn));
+var AuthRoute = exports.AuthRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Auth));
+var ProtectedRoute = exports.ProtectedRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Protected));
 
 /***/ }),
 /* 396 */

@@ -9,12 +9,14 @@ import GreetingContainer from './greeting/greeting_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import QuizContainer from './quiz/quiz_container';
 import CourseContainer from './course_page/course_page_container';
+import UserIndexContainer from './user_index/user_index_container';
 
 
 const App = () => {
   return (
     <div>
       <HeaderContainer />
+      <Route path="/ericistesting" component={UserIndexContainer} />
       <Switch>
         <AuthRoute exact path="/" component={GreetingContainer} />
         <AuthRoute path="/login" component={SessionFormContainer} />

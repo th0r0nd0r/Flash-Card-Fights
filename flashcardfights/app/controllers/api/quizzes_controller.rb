@@ -12,7 +12,7 @@ class Api::QuizzesController < ApplicationController
   def index
     if params[:course_id]
       @quizzes = Quiz.find_by(course_id: params[:course_id])
-    else
+    else 
       @quizzes = Quiz.all
     end
     if @quizzes

@@ -1,4 +1,4 @@
-import * as APIUtil from "../util/QuestionAttempt_api_util";
+import * as APIUtil from "../util/question_attempt_api_util";
 
 export const RECEIVE_QUESTION_ATTEMPTS = "RECEIVE_QUESTION_ATTEMPTS";
 export const RECEIVE_QUESTION_ATTEMPT = "RECEIVE_QUESTION_ATTEMPT";
@@ -31,12 +31,12 @@ export const getQuestionAttempt = id => dispatch =>
     err => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const createQuestionAttempt = question => dispatch =>
-  APIUtil.createQuestionAttempt(question).then(
-    newQuestion => {
-      dispatch(receiveQuestionAttempt(newQuestion));
-      if (newQuestion) {
-        return newQuestion;
+export const createQuestionAttempt = questionId => dispatch =>
+  APIUtil.createQuestionAttempt(questionId).then(
+    newAttempt => {
+      dispatch(receiveQuestionAttempt(newAttempt));
+      if (newAttempt) {
+        return newAttempt;
       }
     },
     err => dispatch(receiveErrors(err.responseJSON))

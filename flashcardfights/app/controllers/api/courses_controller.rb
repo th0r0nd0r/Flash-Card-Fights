@@ -15,7 +15,7 @@ class Api::CoursesController < ApplicationController
   end
   
   def show
-    @course = Course.find(params[:id]).includes(:course_subjects)
+    @course = Course.includes(:subjects, :quizzes).find(params[:id])
     if @course
       render "api/courses/show"
     else

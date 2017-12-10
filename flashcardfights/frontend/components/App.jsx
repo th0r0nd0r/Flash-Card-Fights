@@ -8,7 +8,7 @@ import HeaderContainer from './header/header_container';
 import GreetingContainer from './greeting/greeting_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import QuizContainer from './quiz/quiz_container';
-
+import CourseContainer from './course_page/course_page_container';
 
 
 const App = () => {
@@ -21,6 +21,7 @@ const App = () => {
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
         <ProtectedRoute path="/quiz/:quiz_id" component={QuizContainer} />
+        <ProtectedRoute path="/course/:course_id" component={CourseContainer} />
       </Switch>
     </div>
   );

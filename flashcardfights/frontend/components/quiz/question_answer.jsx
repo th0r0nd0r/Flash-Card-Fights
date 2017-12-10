@@ -7,12 +7,21 @@ class QuestionAnswer extends React.Component {
 
   render() {
     console.log("I'M AN ANSWER: ", this.props.answer);
-    return(
-      <div>
-        <p>{this.props.answer.body}</p>
-          <button onClick={this.props.handleSubmit}>Select this answer</button>
-      </div>
-    );
+    if (this.props.answer.is_correct) {
+      return(
+        <div>
+          <p>{this.props.answer.body}</p>
+          <button onClick={this.props.handleCorrectSubmit}>Select this answer</button>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <p>{this.props.answer.body}</p>
+          <button onClick={this.props.handleIncorrectSubmit}>Select this answer</button>
+        </div>
+      );
+    }
   }
 }
 

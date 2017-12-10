@@ -71,12 +71,12 @@ class Quiz extends React.Component {
           );
       } else {
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        console.log('object keys of attemps is ', Object.keys(this.state.attempts));
+        console.log('object values of attemps is ', Object.values(this.state.attempts));
         return(
           <div className="quiz">
             <h1>{quiz.name}</h1>
               <div>
-                Congratulations, you completed the quiz. Your score was {Object.keys(this.state.attempts).reduce(reducer, 0) / this.state.questions.length}
+                Congratulations, you completed the quiz. Your score was {Object.values(this.state.attempts).reduce(reducer, 0) / this.state.questions.length}
               </div>
           </div>
         )

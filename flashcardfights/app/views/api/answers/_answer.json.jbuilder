@@ -1,1 +1,1 @@
-json.extract! answer, :id, :body
+json.extract! answer, :id, :body, :is_correct

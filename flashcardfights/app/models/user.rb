@@ -20,6 +20,15 @@ class User < ApplicationRecord
 
   has_many :question_attempts
 
+  has_many :courses,
+    class_name: "Course",
+    foreign_key: :educator_id,
+    primary_key: :id
+    
+  has_many :course_students
+  has_many :enrolled_courses, through: :course_students
+
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil

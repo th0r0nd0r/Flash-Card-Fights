@@ -9,6 +9,29 @@ class Api::QuestionsController < ApplicationController
     end
   end
   
+  def show
+    @question = Question.find(params[:id])
+    render "api/questions/show"
+  end
+
+  def update
+    @question = Quiz.find(params[:id])
+    if @question.update(questions_params)
+      render "api/questions/show"
+    else
+      render json: @question.errors.full_messages, status: 401
+    end
+  end
+  
+  def destroy
+    @question = Question.find(params[:id])
+    if @question
+      Question.destroy(@question.id)
+    else
+      render json: ['Can\'t delete what doesn\'t exist']
+    end
+  end
+
   private
   
   def question_params

@@ -20,6 +20,7 @@ class SingleQuestion extends React.Component {
   }
 
   render() {
+    console.log("SINGLE QUESTION PROPS: ", this.props);
     return(
       <div>
         <h1>{this.props.question.body}</h1>

@@ -7,28 +7,30 @@ class Quiz extends React.Component {
     // console.log("props: ", this.props)
     this.state = {
       // keys: Object.values(this.props.quiz.questions),
-      quiz: null,
-      question: 0
+      questions: [],
+      current: 0
     };
     this.incrementQuestionCounter = this.incrementQuestionCounter.bind(this);
   }
 
   incrementQuestionCounter() {
-    this.setState({ question:this.state.question+1 });
+    this.setState({ current: this.state.current + 1 });
   }
 
 
   componentDidMount() {
     const quizId = Number(this.props.match.params.quiz_id);
     this.props.fetchQuiz(quizId)
-      .then(response => this.setState({quiz: response.quiz}));
+      .then(response => this.setState({
+        questions: Object.values(response.quiz.questions)
+      }));
   }
 
   renderQuestion() {
-    const quiz = this.props.quiz;
-    if (quiz) {
+    const questions = this.state.questions;
+    if (!questions.length === 0) {
       return(
-        <SingleQuestion question={quiz.questions[this.state.question]}
+        <SingleQuestion question={questions[this.state.current]}
                         incrementQuestionCounter={this.incrementQuestionCounter}/>
       );
     } else {
@@ -39,14 +41,19 @@ class Quiz extends React.Component {
   render() {
     console.log("STATE: ", this.state);
     console.log("PROPS: ", this.props);
-    return(
-      <div className="quiz">
-        <h1>THIS IS THE QUIZ COMPONENT</h1>
-        <div className="single-question">
-          {this.renderQuestion()}
+    const quiz = Object.values(this.props.quiz)[0];
+    if (quiz) {
+      return(
+        <div className="quiz">
+          <h1>{quiz.name}</h1>
+          <div className="single-question">
+            {this.renderQuestion()}
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (<div>LOADING...</div>);
+    }
   }
 }
 

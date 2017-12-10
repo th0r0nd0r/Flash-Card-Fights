@@ -20,6 +20,10 @@ QuizSubject.destroy_all
 
 demo_users = User.create([
   {
+    username: 'demo',
+    password: 'password'
+  },
+  {
     username: 'Captain Kirk',
     password: 'captainslog',
     img_url: 'http://pixel.nymag.com/imgs/daily/vulture/2015/07/26/26-Kirk.w529.h529.jpg',
@@ -222,8 +226,13 @@ demo_course_quizzes = CourseQuiz.create([
 demo_challenges = Challenge.create([
   {
     challenger_id: demo_users[2].id,
-    challengee_id: demo_users[3].id,
+    challengee_id: demo_users[0].id,
     quiz_id: demo_quizzes[1].id,
+  },
+  {
+    challenger_id: demo_users[3].id,
+    challengee_id: demo_users[0].id,
+    quiz_id: demo_quizzes[0].id,
   }
 ])
 

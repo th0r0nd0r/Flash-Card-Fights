@@ -16,11 +16,15 @@ class ChallengeIndex extends React.Component {
   }
 
   render() {
-    console.log("PROPS: ", this.props)
-    console.log("STATE: ", this.state)
+    console.log("PROPS: ", this.props);
+    console.log("STATE: ", this.state);
+    const challenges = this.state.challenges;
     return(
       <div>
-        <h1>Active challenges</h1>
+        <h1>Active challenges ({ challenges.length })</h1>
+        <ul>
+          { challenges.map((challenge) => <li>{challenge.challenger.username} challenges you on { challenge.quiz.name }</li>)}
+        </ul>
       </div>
     );
   }

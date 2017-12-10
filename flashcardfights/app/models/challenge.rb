@@ -24,6 +24,6 @@ class Challenge < ApplicationRecord
     foreign_key: :challengee_id,
     primary_key: :id
 
-  has_one :quiz
+  belongs_to :quiz
 
 end

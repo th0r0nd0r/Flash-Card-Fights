@@ -14,6 +14,7 @@ class Quiz < ApplicationRecord
   has_many :quiz_attempts
   has_many :quiz_subjects
   has_many :subjects, through: :quiz_subjects
+  has_many :challenges
 
   def average_score
     num_attempts = self.quiz_attempts.count

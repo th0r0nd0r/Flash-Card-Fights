@@ -17,6 +17,7 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.props.getCourses();
     this.props.getSubjects();
+    this.props.getQuizzes();
   }
 
   componentWillReceiveProps(props) {

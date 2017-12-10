@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -93,7 +92,7 @@ class Dashboard extends React.Component {
           <h3>My Courses</h3>
           <div className="course-or-quiz-list">
             <ul>
-              <ReactCSSTransitionGroup
+              <CSSTransitionGroup
                 transitionName="example"
                 transitionEnterTimeout={500}
                 transitionLeaveTimeout={300}>
@@ -107,7 +106,7 @@ class Dashboard extends React.Component {
                 );
               }
             )}
-            </ReactCSSTransitionGroup>
+              </CSSTransitionGroup>
             </ul>
           </div>
         </div>

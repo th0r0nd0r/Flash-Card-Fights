@@ -31,8 +31,8 @@ export const getQuizAttempt = id => dispatch =>
     err => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const createQuizAttempt = quiz => dispatch =>
-  APIUtil.createQuizAttempt(quiz).then(
+export const createQuizAttempt = quizId => dispatch =>
+  APIUtil.createQuizAttempt(quizId).then(
     newQuiz => {
       dispatch(receiveQuizAttempt(newQuiz));
       if (newQuiz) {

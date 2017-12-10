@@ -20,16 +20,19 @@ class Quiz extends React.Component {
   }
 
   recordAttemptScore(score) {
-    let arr = this.state.attempts
-    arr.push(score)
+    let arr = this.state.attempts;
+    arr.push(score);
+    if(arr.length === this.state.questions.length) {
+      this.props.createQuizAttempt(this.props.quiz);
+    }
     this.setState({
-      attempts:arr
+      attempts: arr
       }
     );
   }
 
   componentWillMount() {
-    this.setState({current:0})
+    this.setState({current:0});
   }
 
   componentDidMount() {

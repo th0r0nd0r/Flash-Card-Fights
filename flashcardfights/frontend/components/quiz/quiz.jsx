@@ -4,6 +4,7 @@ import SingleQuestion from './single_question';
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
+    console.log("props: ", this.props)
     this.state = {
       // keys: Object.values(this.props.quiz.questions),
       question: 0
@@ -18,6 +19,7 @@ class Quiz extends React.Component {
 
   componentWillMount() {
     this.props.fetchQuiz(this.props.match.params.quiz_id);
+    console.log('quiz id is', this.props.match.params.quiz_id);
   }
 
   renderQuestion() {

@@ -16,6 +16,7 @@ QuizQuestion.destroy_all
 Answer.destroy_all
 Challenge.destroy_all
 Subject.destroy_all
+QuizSubject.destroy_all
 
 demo_users = User.create([
   {
@@ -205,6 +206,8 @@ demo_quizzes = Quiz.create([
   }
 ])
 
+QuizSubject.create({quiz_id: Quiz.first.id, subject_id: Subject.first.id})
+
 demo_course_quizzes = CourseQuiz.create([
   {
     course_id: demo_courses[2].id,
@@ -344,3 +347,4 @@ demo_answers = Answer.create!([
     is_correct: true
   },
 ])
+

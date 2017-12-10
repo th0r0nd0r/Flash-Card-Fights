@@ -22,7 +22,9 @@ class Header extends React.Component {
       <div className="logout-header">
         <div className="header-left">
           <div className="header-logo">
-            <p className="header-logo-text">FCF</p>
+            <Link to="/">
+              <p className="header-logo-text">FCF</p>
+            </Link>
           </div>
         </div>
         <div className="header-right">

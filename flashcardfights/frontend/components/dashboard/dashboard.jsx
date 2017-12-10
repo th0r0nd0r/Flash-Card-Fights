@@ -10,6 +10,7 @@ class Dashboard extends React.Component {
     this.handleCourseClick = this.handleCourseClick.bind(this);
     this.state = {
       allCourses: {},
+      allQuizzes: {},
       courses: {},
       filters: {},
       quizzes: {}
@@ -23,7 +24,7 @@ class Dashboard extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({ allCourses: props.courses, courses: props.courses, quizzes: props.quizzes.quizzes });
+    this.setState({ allCourses: props.courses, courses: props.courses, allQuizzes: props.quizzes.quizzes, quizzes: props.quizzes.quizzes });
   }
 
   componentWillUnmount() {
@@ -52,18 +53,31 @@ class Dashboard extends React.Component {
       Object.keys(this.state.allCourses).map((course_idx) => {
         Object.values(this.state.allCourses[course_idx].subjects).map((x) => {
           if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredCourses).includes(course_idx)) {
-            filteredCourses[counter2] = this.state.allCourses[course_idx];
+            filteredCourses[course_idx] = this.state.allCourses[course_idx];
             counter2++;
           }
         });
       });
-      console.log(newFilters);
+
+      let filteredQuizzes = {};
+      let counter3 = 1;
+      Object.keys(this.state.allQuizzes).map((quiz_idx) => {
+        Object.values(this.state.allQuizzes[quiz_idx].subjects).map((x) => {
+          if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredQuizzes).includes(quiz_idx)) {
+            filteredQuizzes[quiz_idx] = this.state.allQuizzes[quiz_idx];
+            counter3++;
+          }
+        });
+      });
+
       if (Object.keys(newFilters).length === 0) {
         this.setState({ courses: this.state.allCourses });
         this.setState({ filters: newFilters });
+        this.setState({ quizzes: this.state.allQuizzes });
       } else {
         this.setState({filters: newFilters});
         this.setState({ courses: filteredCourses });
+        this.setState({ quizzes: filteredQuizzes });
       }
     } else {
       e.target.classList.add("tags-active");
@@ -81,19 +95,32 @@ class Dashboard extends React.Component {
       Object.keys(this.state.allCourses).map((course_idx) => {
         Object.values(this.state.allCourses[course_idx].subjects).map((x) => {
           if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredCourses).includes(course_idx)) {
-            filteredCourses[counter] = this.state.allCourses[course_idx];
+            filteredCourses[course_idx] = this.state.allCourses[course_idx];
             counter ++;
           }
         });
       });
+
+      let filteredQuizzes = {};
+      let counter3 = 1;
+      Object.keys(this.state.allQuizzes).map((quiz_idx) => {
+        Object.values(this.state.allQuizzes[quiz_idx].subjects).map((x) => {
+          if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredQuizzes).includes(quiz_idx)) {
+            filteredQuizzes[quiz_idx] = this.state.allQuizzes[quiz_idx];
+            counter3++;
+          }
+        });
+      });
+
       console.log("FILTERED COURSES", filteredCourses);
       this.setState({ courses: filteredCourses });
+      this.setState({ quizzes: filteredQuizzes });
     }
     console.log("state", this.state.filters);
   }
   
   render() {
-    console.log("STATE", this.state.quizzes);
+    console.log("STATE", this.state);
     return (
       <div className="dash">
         <h2>DASHBOARD</h2>
@@ -141,7 +168,9 @@ class Dashboard extends React.Component {
                 {Object.keys(this.state.quizzes).map((quiz_indx) => {
                   return (
                     <div>
+                      <Link to={`quiz/${this.state.quizzes[quiz_indx].id}`} >
                       <li>{this.state.quizzes[quiz_indx].name}</li>
+                      </Link>
                       <div className="tag-divider"></div>
                     </div>);
                 }

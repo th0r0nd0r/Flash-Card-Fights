@@ -5,7 +5,7 @@ class Quiz extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keys: Object.values(this.props.quiz.questions)
+      keys: Object.values(this.props.quiz.questions),
       question: 0
     }
   }
@@ -18,7 +18,7 @@ class Quiz extends React.Component {
 
   render() {
     return(
-      {this.renderQuestion()}
+      this.renderQuestion()
     );
   }
 }

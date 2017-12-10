@@ -19,14 +19,14 @@ class Api::QuizzesController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.find(params[:id])
+    @quiz = Quiz.includes(:questions, answers: [:body, :is_correct]).find(params[:id])
     if @quiz
       render "api/quizzes/show"
     else
       render json: ['Could not find quiz'], status: 404
     end
   end
-  
+
   def update
     @quiz = Quiz.find(params[:id])
     if @quiz.update(quiz_params)
@@ -47,7 +47,7 @@ class Api::QuizzesController < ApplicationController
   end
 
   private
-  
+
   def quizzes_params
     params.require(:quiz).permit(:name)
   end

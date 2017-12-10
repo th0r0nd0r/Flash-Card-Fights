@@ -5,6 +5,7 @@ class SingleQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderAnswers = this.renderAnswers.bind(this);
   }
 
   handleSubmit() {
@@ -14,9 +15,13 @@ class SingleQuestion extends React.Component {
   }
 
   renderAnswers() {
-    let answers = Object.values(this.props.question.answers).map(answer => {
-      <QuestionAnswer answer={answer} handleSubmit={this.handleSubmit}/>
-    });
+    let answers = Object.values(this.props.question.answers);
+    console.log(answers);
+    return(
+      <div>
+        { answers.map((answer, idx) => <QuestionAnswer key={idx} answer={answer} handleSubmit={this.handleSubmit}/>) }
+      </div>
+    );
   }
 
   render() {

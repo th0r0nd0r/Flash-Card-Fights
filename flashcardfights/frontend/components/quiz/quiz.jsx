@@ -9,7 +9,7 @@ class Quiz extends React.Component {
       // keys: Object.values(this.props.quiz.questions),
       questions: [],
       current: -1,
-      attempts: {}
+      attempts: []
     };
     this.incrementQuestionCounter = this.incrementQuestionCounter.bind(this);
     this.recordAttemptScore = this.recordAttemptScore.bind(this);
@@ -20,9 +20,10 @@ class Quiz extends React.Component {
   }
 
   recordAttemptScore(score) {
+    let arr = this.state.attempts
+    arr.push(score)
     this.setState({
-      attempts:
-        {[this.state.current]:score}
+      attempts:arr
       }
     );
   }
@@ -76,7 +77,7 @@ class Quiz extends React.Component {
           <div className="quiz">
             <h1>{quiz.name}</h1>
               <div>
-                Congratulations, you completed the quiz. Your score was {Object.values(this.state.attempts).reduce(reducer, 0) / this.state.questions.length}
+                Congratulations, you completed the quiz. Your score was {this.state.attempts.reduce(reducer, 0) / this.state.questions.length}
               </div>
           </div>
         )

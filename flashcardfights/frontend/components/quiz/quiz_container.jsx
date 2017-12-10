@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchQuiz: id => dispatch(getQuiz(id)),
-  createQuestionAttempt: question => dispatch(createQuestionAttempt(question))
+  createQuestionAttempt: question => dispatch(createQuestionAttempt(question)),
+  createQuizAttempt: quiz => dispatch(createQuizAttempt(quiz))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Quiz);

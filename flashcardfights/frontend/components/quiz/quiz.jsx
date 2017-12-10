@@ -7,12 +7,12 @@ class Quiz extends React.Component {
     this.state = {
       keys: Object.values(this.props.quiz.questions),
       question: 0
-    }
+    };
     this.incrementQuestionCounter = this.incrementQuestionCounter.bind(this);
   }
 
   incrementQuestionCounter() {
-    this.setState({question:this.state.question+1})
+    this.setState({question:this.state.question+1});
   }
 
 
@@ -29,9 +29,15 @@ class Quiz extends React.Component {
 
   render() {
     return(
-      this.renderQuestion()
+      <div className="quiz">
+        <h1>THIS IS THE QUIZ COMPONENT</h1>
+        <div className="single-question">
+          {this.renderQuestion()}
+        </div>
+      </div>
     );
   }
 }
+
 
 export default Quiz;

@@ -46521,15 +46521,9 @@ exports.default = questionAttemptsReducer;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-<<<<<<< HEAD
 
 var _quiz_actions = __webpack_require__(79);
 
-=======
-
-var _quiz_actions = __webpack_require__(79);
-
->>>>>>> c37a09f64b927227bae6e6c3ff6b30fa0e4a368b
 var _merge = __webpack_require__(37);
 
 var _merge2 = _interopRequireDefault(_merge);
@@ -53429,15 +53423,7 @@ var Quiz = function (_React$Component) {
   }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
-<<<<<<< HEAD
-      var _this2 = this;
-
-      this.props.getQuiz(this.props.match.params.quizId).then(function (quiz) {
-        _this2.setState({ quiz: quiz });
-      });
-=======
       this.props.getQuiz(this.props.match.params.quiz_id);
->>>>>>> c37a09f64b927227bae6e6c3ff6b30fa0e4a368b
     }
   }, {
     key: 'renderQuestion',
@@ -53452,14 +53438,11 @@ var Quiz = function (_React$Component) {
         'div',
         { className: 'quiz' },
         _react2.default.createElement(
-<<<<<<< HEAD
-=======
           'h1',
           null,
           'THIS IS THE QUIZ COMPONENT'
         ),
         _react2.default.createElement(
->>>>>>> c37a09f64b927227bae6e6c3ff6b30fa0e4a368b
           'div',
           { className: 'single-question' },
           this.renderQuestion()

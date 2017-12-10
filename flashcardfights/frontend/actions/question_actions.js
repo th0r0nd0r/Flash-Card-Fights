@@ -1,13 +1,10 @@
 import * as APIUtil from "../util/question_api_util";
 
-export const RECEIVE_QUESTIONS = "RECEIVE_questionS";
-export const RECEIVE_QUESTION = "RECEIVE_question";
-export const RECEIVE_QUESTION_ERRORS = "RECEIVE_question_ERRORS";
-export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
-export const UPDATE_REVIEW = "UPDATE_REVIEW";
-export const DELETE_REVIEW = "DELETE_REVIEW";
+export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
+export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
+export const RECEIVE_QUESTION_ERRORS = "RECEIVE_QUESTION_ERRORS";
 
-export const receivequestions = questions => ({
+export const receiveQuestions = questions => ({
   type: RECEIVE_QUESTIONS,
   questions
 });
@@ -22,24 +19,10 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const receiveReview = review => ({
-  type: RECEIVE_REVIEW,
-  review
-});
-
-export const patchReview = review => ({
-  type: UPDATE_REVIEW,
-  review
-});
-
-export const destroyReview = review => ({
-  type: DELETE_REVIEW,
-  review
-});
 
 export const getQuestions = filters => dispatch =>
   APIUtil.fetchQuestions(filters).then(
-    questions => dispatch(receivequestions(questions)),
+    questions => dispatch(receiveQuestions(questions)),
     err => dispatch(receiveErrors(err.responseJSON))
   );
 

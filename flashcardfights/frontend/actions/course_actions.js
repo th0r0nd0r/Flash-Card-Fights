@@ -3,9 +3,6 @@ import * as APIUtil from "../util/course_api_util";
 export const RECEIVE_COURSES = "RECEIVE_courseS";
 export const RECEIVE_COURSE = "RECEIVE_course";
 export const RECEIVE_COURSE_ERRORS = "RECEIVE_COURSE_ERRORS";
-export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
-export const UPDATE_REVIEW = "UPDATE_REVIEW";
-export const DELETE_REVIEW = "DELETE_REVIEW";
 
 export const receiveCourses = courses => ({
   type: RECEIVE_COURSES,

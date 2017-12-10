@@ -11,4 +11,15 @@
 class Quiz < ApplicationRecord
   has_many :quiz_questions
   has_many :questions, through: :quiz_questions
+  has_many :quiz_attempts
+
+  def average_score
+    num_attempts = self.quiz_attempts.count
+    return 50 if num_attempts == 0
+    total = 0
+    self.quiz_attempts.each do |attempt|
+      total += attempt.score 
+    end
+    total / num_attempts
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210024208) do
+ActiveRecord::Schema.define(version: 20171210042747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20171210024208) do
   create_table "question_attempts", force: :cascade do |t|
     t.integer "question_id", null: false
     t.integer "user_id", null: false
-    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "score"
     t.index ["question_id"], name: "index_question_attempts_on_question_id"
     t.index ["user_id"], name: "index_question_attempts_on_user_id"
   end
@@ -81,19 +81,17 @@ ActiveRecord::Schema.define(version: 20171210024208) do
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
     t.integer "author_id", null: false
-    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_questions_on_author_id"
-    t.index ["course_id"], name: "index_questions_on_course_id"
   end
 
   create_table "quiz_attempts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "quiz_id"
-    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "score"
     t.index ["quiz_id"], name: "index_quiz_attempts_on_quiz_id"
     t.index ["user_id"], name: "index_quiz_attempts_on_user_id"
   end

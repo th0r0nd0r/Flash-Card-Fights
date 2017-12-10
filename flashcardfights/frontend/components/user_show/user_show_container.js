@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { createChallenge } from "../../actions/challenge_actions";
 import User from "./user_show";
 
-const mapStateToProps = (state, { id, username, isEducator, quizId}) => ({
-  id, username, isEducator, quizId,
+const mapStateToProps = (state, { id, username, isEducator, quizId, closeModal}) => ({
+  id, username, isEducator, quizId, closeModal,
   currentUser: state.session.currentUser,
 });
 

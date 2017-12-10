@@ -31,6 +31,7 @@ class UserIndex extends React.Component {
                 username={mate.username}
                 isEducator={mate.is_educator}
                 quizId={this.props.quizId}
+                closeModal={this.props.closeModal}
               />
           </div>
         );

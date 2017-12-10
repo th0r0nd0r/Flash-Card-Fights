@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: state.session.user,
     classmates: state.entities.users,
+    closeModal: ownProps.closeModal
   };
 };
 

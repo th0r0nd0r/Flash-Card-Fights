@@ -80,7 +80,7 @@ class AppModal extends React.Component {
           quizId={this.props.quizId || {}}
         >
 
-          <this.props.action text={text} quizId={this.props.quizId} closeModal={this.closeModal} user={user} />
+          <this.props.action closeModal={this.closeModal} text={text} quizId={this.props.quizId} closeModal={this.closeModal} user={user} />
         </Modal>
       </div>
     );

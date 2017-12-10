@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import Quiz from './quiz';
 import { getQuiz } from '../../actions/quiz_actions';
 import { createQuestionAttempt } from '../../actions/question_attempt_actions';
+import {createQuizAttempt} from '../../actions/quiz_attempt_actions';
 
 // console.log("get Quiz: ", getQuiz);
 

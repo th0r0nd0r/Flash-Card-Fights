@@ -1,4 +1,4 @@
-import * as APIUtil from "../util/QuizAttempt_api_util";
+import * as APIUtil from "../util/quiz_attempt_api_util";
 
 export const RECEIVE_QUIZ_ATTEMPTS = "RECEIVE_QUIZ_ATTEMPTS";
 export const RECEIVE_QUIZ_ATTEMPT = "RECEIVE_QUIZ_ATTEMPT";
@@ -35,9 +35,6 @@ export const createQuizAttempt = quizId => dispatch =>
   APIUtil.createQuizAttempt(quizId).then(
     newQuiz => {
       dispatch(receiveQuizAttempt(newQuiz));
-      if (newQuiz) {
-        return newQuiz;
-      }
     },
     err => dispatch(receiveErrors(err.responseJSON))
   );

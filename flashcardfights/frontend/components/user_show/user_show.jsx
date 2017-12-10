@@ -19,6 +19,7 @@ class User extends React.Component {
     e.preventDefault();
     // console.log("clicked:", this.props.getSpot);
     this.props.createChallenge(challenge);
+    this.props.closeModal();
   }
 
   render() {

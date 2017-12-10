@@ -13,11 +13,10 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     this.props.getCourses();
-
+    this.props.getSubjects();
   }
   
   render() {
-    console.log(this.props.courses);
     return (
       <div className="dash">
         <h2>DASHBOARD</h2>
@@ -26,9 +25,10 @@ class Dashboard extends React.Component {
           <div className="course-list">
             <ul>
               {Object.keys(this.props.courses).map((course_indx) => {
+                let courseCardClassName = `course-card-${course_indx % 4}`;
                 return(
                 <div>
-                  <li>{this.props.courses[course_indx].title}</li>
+                    <li className={courseCardClassName}>{this.props.courses[course_indx].title}</li>
                   <div className="course-divider"></div>
                 </div>);
               }
@@ -39,13 +39,14 @@ class Dashboard extends React.Component {
         <div className="tags">
           <h3>Tags</h3>
           <ul>
-            <li>Math</li>
-            <div className="tag-divider"></div>
-            <li>Science</li>
-            <div className="tag-divider"></div>
-            <li>English</li>
-            <div className="tag-divider"></div>
-            <li>Rockclimbing</li>
+            {Object.keys(this.props.subjects).map((subject_indx) => {
+              return (
+                <div>
+                  <li>{this.props.subjects[subject_indx].title}</li>
+                  <div className="tag-divider"></div>
+                </div>);
+            }
+            )}
           </ul>
         </div>
 

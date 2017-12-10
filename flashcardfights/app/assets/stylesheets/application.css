@@ -382,3 +382,41 @@
   display: flex;
   justify-content: center;
 }
+
+.session-form-div {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.session-inputs-demo {
+  min-height: 50px;
+  max-height: 50px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.session-inputs-demo p {
+  margin: 0;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.height-divider {
+  height: 10px;
+}
+
+.session-form button, .session-form input {
+  padding: 10px;
+  border-radius: 0;
+}
+
+.session-form input {
+  margin-bottom: 5px;
+}

@@ -16,7 +16,8 @@ const customStyles = {
     padding: '0',
     width: '30%',
     height: '50%',
-    'borderRadius': '5px'
+    'borderRadius': '5px',
+    opacity: '0.9'
   }
 };
 

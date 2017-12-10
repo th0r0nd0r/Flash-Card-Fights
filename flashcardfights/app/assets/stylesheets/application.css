@@ -105,6 +105,8 @@
 
 .course-list ul {
   display: flex;
+  font-family: 'Indie Flower', sans-serif;
+  text-align: center;
   flex-direction: row;
   flex-flow: wrap;
   margin-left: 10%;

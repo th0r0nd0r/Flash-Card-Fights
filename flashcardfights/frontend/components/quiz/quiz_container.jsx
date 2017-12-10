@@ -6,7 +6,7 @@ import { createQuestionAttempt } from '../../actions/question_attempt_actions';
 console.log("get Quiz: ", getQuiz);
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state)
+  console.log(state);
   return{
     quiz: state.entities.quizAccoutrements.quizzes
   };

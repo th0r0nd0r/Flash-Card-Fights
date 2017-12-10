@@ -22,8 +22,9 @@ class Quiz extends React.Component {
   recordAttemptScore(score) {
     let arr = this.state.attempts;
     arr.push(score);
+    console.log("what are props", this.props)
     if(arr.length === this.state.questions.length) {
-      this.props.createQuizAttempt(this.props.quiz);
+      this.props.createQuizAttempt(Object.values(this.props.quiz)[0].id);
     }
     this.setState({
       attempts: arr

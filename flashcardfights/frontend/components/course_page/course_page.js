@@ -52,7 +52,7 @@ class CoursePage extends React.Component {
                   console.log("QUIZ: ",quiz);
                   return (
                     <div>
-                      <Link to={`/quiz/${quiz.id}`}>
+                      <Link to={`/quiz/${quiz.id}/challenge`}>
                         <li className={quizCardClassName}>{quiz.name}</li>
                       </Link>
                       <div className="course-or-quiz-divider"></div>

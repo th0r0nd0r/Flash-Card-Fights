@@ -170,7 +170,7 @@ class Dashboard extends React.Component {
                 {Object.keys(this.state.quizzes).map((quiz_indx) => {
                   return (
                     <div>
-                      <Link to={`quiz/${this.state.quizzes[quiz_indx].id}`} >
+                      <Link to={`quiz/${this.state.quizzes[quiz_indx].id}/challenge`} >
                       <li>{this.state.quizzes[quiz_indx].name}</li>
                       </Link>
                       <div className="tag-divider"></div>

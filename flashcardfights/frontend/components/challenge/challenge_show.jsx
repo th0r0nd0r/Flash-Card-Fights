@@ -1,7 +1,7 @@
 import React from "react";
 import UserIndexContainer from "../user_index/user_index_container";
 import Modal from 'React-Modal';
-import AppModal from "../Modal.jsx";
+import AppModal from "./ChallengeModal.jsx";
 import Link from 'react-router-dom';
 
 class ChallengeShow extends React.Component {

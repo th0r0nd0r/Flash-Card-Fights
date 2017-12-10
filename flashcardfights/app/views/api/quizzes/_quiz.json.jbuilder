@@ -1,2 +1,2 @@
-json.extract! quiz, :id, :name
+json.extract! quiz, :id, :name, :average_score
 

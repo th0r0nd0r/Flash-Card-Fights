@@ -19,7 +19,7 @@ class Api::QuizzesController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.includes(:questions, answers: [:body, :is_correct]).find(params[:id])
+    @quiz = Quiz.includes(questions: [:answers]).find(params[:id])
     if @quiz
       render "api/quizzes/show"
     else

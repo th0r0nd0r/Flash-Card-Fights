@@ -14,3 +14,11 @@ json.questions do
     end
   end
 end
+
+json.quiz_attempts do
+  @quiz.quiz_attempts.each do |attempt|
+    json.set! attempt.id do
+      json.partial! "api/quiz_attempts/quiz_attempt", quiz_attempt: attempt
+    end
+  end
+end

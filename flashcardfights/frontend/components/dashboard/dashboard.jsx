@@ -17,14 +17,30 @@ class Dashboard extends React.Component {
     this.props.getSubjects();
   }
 
-  componentWillReceiveProps() {
-    this.setState({ courses: this.props.courses });
+  componentWillReceiveProps(props) {
+    this.setState({ courses: props.courses });
   }
 
   subjectClick(e) {
     e.preventDefault();
-    console.log(e.target.dataset.subject);
-    console.log(this.state.courses);
+    console.log(e.target.classList);
+    if (e.target.classList.contains("tags-active")) {
+      e.target.classList.remove("tags-active");
+    } else {
+      e.target.classList.add("tags-active");
+      let filteredCourses = {};
+      const filter = e.target.dataset.subject;
+      let counter = 1;
+      Object.keys(this.state.courses).map((course_idx) => {
+        Object.values(this.state.courses[course_idx].subjects).map((x) => {
+          if (x.title === filter) {
+            filteredCourses[counter] = this.state.courses[course_idx];
+            counter ++;
+          }
+        });
+      });
+      this.setState({ courses: filteredCourses });
+    }
   }
   
   render() {

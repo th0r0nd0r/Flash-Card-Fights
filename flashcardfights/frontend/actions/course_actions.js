@@ -23,19 +23,19 @@ export const receiveErrors = errors => ({
 });
 
 export const getCourses = filters => dispatch =>
-  APIUtil.fetchcourses(filters).then(
+  APIUtil.fetchCourses(filters).then(
     courses => dispatch(receiveCourses(courses)),
     err => dispatch(receiveErrors(err.responseJSON))
   );
 
 export const getCourse = id => dispatch =>
-  APIUtil.fetchcourse(id).then(
+  APIUtil.fetchCourse(id).then(
     course => dispatch(receiveCourse(course)),
     err => dispatch(receiveErrors(err.responseJSON))
   );
 
 export const createCourse = course => dispatch =>
-  APIUtil.createcourse(course).then(
+  APIUtil.createCourse(course).then(
     newCourse => {
       dispatch(receiveCourse(newCourse));
       if (newCourse) {
@@ -46,7 +46,7 @@ export const createCourse = course => dispatch =>
   );
 
 export const updateCourse = course => dispatch =>
-  APIUtil.updatecourse(course)
+  APIUtil.updateCourse(course)
     .then(updated => dispatch(receiveCourse(updated)))
     .fail(err => dispatch(receiveErrors(err.responseJSON)));
 

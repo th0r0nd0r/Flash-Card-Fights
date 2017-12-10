@@ -64,6 +64,10 @@
   left: 120px;
 }
 
+.my-courses h3{
+  margin-top: 0;
+}
+
 .splash h4 {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
@@ -108,6 +112,8 @@
 }
 
 .course-list li {
+  font-size: 20px;
+  font-weight: 900;
   list-style: none;
   border: 1px solid black;
   padding: 40px;
@@ -137,4 +143,25 @@
 
 .dash {
   padding-left: 20px;
+  font-size: 20px;
+}
+
+.tags li {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 15%;
+  padding: 5px;
+  border: 1px solid gray;
+  transition: all .2s ease-in-out;
+}
+
+.tags li:hover {
+  background-color: rgb(143, 143, 143);
+  transform: scale(1.05);
+}
+
+.tag-divider {
+  width: 5px;
+  height: 5px;
 }

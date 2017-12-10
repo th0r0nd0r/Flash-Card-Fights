@@ -40,8 +40,11 @@ class Dashboard extends React.Component {
           <h3>Tags</h3>
           <ul>
             <li>Math</li>
+            <div className="tag-divider"></div>
             <li>Science</li>
+            <div className="tag-divider"></div>
             <li>English</li>
+            <div className="tag-divider"></div>
             <li>Rockclimbing</li>
           </ul>
         </div>

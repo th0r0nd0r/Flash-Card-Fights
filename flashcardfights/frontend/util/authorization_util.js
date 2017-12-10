@@ -7,7 +7,7 @@ const requireLogin = ({ component: Component, path, loggedIn }) => {
     !loggedIn ? (
       <Component {...props} />
     ) : (
-        <Redirect to="/" />
+        <Redirect to="/dashboard" />
       )
   )} />);
 };
@@ -17,7 +17,7 @@ const LoggedIn = ({ component: Component, path, loggedIn }) => {
     loggedIn ? (
       <Component {...props} />
     ) : (
-        <Redirect to="/dashboard" />
+        <Redirect to="/" />
       )
   )} />);
 };

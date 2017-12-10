@@ -6,53 +6,62 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Course.destroy_all
+CourseStudent.destroy_all
+CourseSubject.destroy_all
+
 demo_users = User.create([
   {
     username: 'Captain Kirk',
     password: 'captainslog',
-    img_url: 'http://pixel.nymag.com/imgs/daily/vulture/2015/07/26/26-Kirk.w529.h529.jpg'
+    img_url: 'http://pixel.nymag.com/imgs/daily/vulture/2015/07/26/26-Kirk.w529.h529.jpg',
+    is_educator: true
   },
   {
     username: 'Jack Sparrow',
     password: 'whynorum',
-    img_url: 'https://lumiere-a.akamaihd.net/v1/images/bluesteel_d0f846ee.jpeg?region=0%2C0%2C1580%2C880'
+    img_url: 'https://lumiere-a.akamaihd.net/v1/images/bluesteel_d0f846ee.jpeg?region=0%2C0%2C1580%2C880',
+    is_educator: true
   },
   {
     username: 'John Madden',
     password: 'football',
-    img_url: 'https://cbssanfran.files.wordpress.com/2010/09/johnmadden01-250.jpg?w=318&h=318&crop=1'
+    img_url: 'https://cbssanfran.files.wordpress.com/2010/09/johnmadden01-250.jpg?w=318&h=318&crop=1',
+    is_educator: true
   },
   {
     username: 'Whoopee Goldberg',
     password: 'crazydrinks',
-    img_url: 'http://www.treknews.net/wp-content/uploads/2016/08/whoopi-goldberg-guinan-star-trek-tng.jpg'
+    img_url: 'http://www.treknews.net/wp-content/uploads/2016/08/whoopi-goldberg-guinan-star-trek-tng.jpg',
+    is_educator: true
   }
 ])
 
 demo_courses = Course.create([
   {
     title: "Captain Kirk's Math Class",
-    educator_id: 1,
+    educator_id: demo_users[0].id,
   },
   {
     title: "4th Grade Algebra",
-    educator_id: 2
+    educator_id: demo_users[1].id
   },
   {
     title: "5th Grade Calculus",
-    educator_id: 2
+    educator_id: demo_users[1].id
   },
   {
     title: "Mysteries of Paint",
-    educator_id: 2
+    educator_id: demo_users[1].id
   },
   {
     title: "Identifying Wood",
-    educator_id: 2
+    educator_id: demo_users[1].id
   },
   {
     title: "Kanye 101",
-    educator_id: 1
+    educator_id: demo_users[0].id
   }
 ])
 

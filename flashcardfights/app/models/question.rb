@@ -31,5 +31,4 @@ class Question < ApplicationRecord
     end
     total / num_attempts
   end
-
 end

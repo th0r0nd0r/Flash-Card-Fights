@@ -42,9 +42,4 @@ export const createQuestionAttempt = question => dispatch =>
     err => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const updateQuestionAttempt = question => dispatch =>
-  APIUtil.updateQuestionAttempt(question)
-    .then(updated => dispatch(receiveQuestionAttempt(updated)))
-    .fail(err => dispatch(receiveErrors(err.responseJSON)));
-
 export const deleteQuestionAttempt = id => dispatch => APIUtil.deletequestionAttempt(id);

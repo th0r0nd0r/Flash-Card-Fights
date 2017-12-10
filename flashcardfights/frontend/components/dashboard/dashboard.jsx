@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+    this.subjectClick = this.subjectClick.bind(this);
     this.state = {
       courses: []
     };
@@ -14,6 +15,16 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.props.getCourses();
     this.props.getSubjects();
+  }
+
+  componentWillReceiveProps() {
+    this.setState({ courses: this.props.courses });
+  }
+
+  subjectClick(e) {
+    e.preventDefault();
+    console.log(e.target.dataset.subject);
+    console.log(this.state.courses);
   }
   
   render() {
@@ -24,11 +35,11 @@ class Dashboard extends React.Component {
           <h3>My Courses</h3>
           <div className="course-list">
             <ul>
-              {Object.keys(this.props.courses).map((course_indx) => {
+              {Object.keys(this.state.courses).map((course_indx) => {
                 let courseCardClassName = `course-card-${course_indx % 4}`;
                 return(
                 <div>
-                    <li className={courseCardClassName}>{this.props.courses[course_indx].title}</li>
+                    <li className={courseCardClassName}>{this.state.courses[course_indx].title}</li>
                   <div className="course-divider"></div>
                 </div>);
               }
@@ -42,7 +53,7 @@ class Dashboard extends React.Component {
             {Object.keys(this.props.subjects).map((subject_indx) => {
               return (
                 <div>
-                  <li>{this.props.subjects[subject_indx].title}</li>
+                  <li onClick={this.subjectClick} data-subject={`${this.props.subjects[subject_indx].title}`}>{this.props.subjects[subject_indx].title}</li>
                   <div className="tag-divider"></div>
                 </div>);
             }

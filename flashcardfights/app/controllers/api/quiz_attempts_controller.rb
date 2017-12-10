@@ -19,6 +19,16 @@ class Api::QuizAttemptsController < ApplicationController
     end
   end
   
+  def show
+    @quiz_attempt = QuizAttempt.find(params[:id])
+    if @quiz_attempt
+      QuizAttempt.destroy(@quiz_attempt.id)
+      render "api/quiz_attempts/show"
+    else
+      render json: "Could not find quiz attempt to show"
+    end
+  end
+  
   private
   
   def quiz_attempt_params

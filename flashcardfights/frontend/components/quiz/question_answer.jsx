@@ -10,15 +10,13 @@ class QuestionAnswer extends React.Component {
     if (this.props.answer.is_correct) {
       return(
         <div>
-          <p>{this.props.answer.body}</p>
-          <button onClick={this.props.handleCorrectSubmit}>Select this answer</button>
+          <button onClick={this.props.handleCorrectSubmit}>{this.props.answer.body}</button>
         </div>
       );
     } else {
       return(
         <div>
-          <p>{this.props.answer.body}</p>
-          <button onClick={this.props.handleIncorrectSubmit}>Select this answer</button>
+          <button onClick={this.props.handleIncorrectSubmit}>{this.props.answer.body}</button>
         </div>
       );
     }

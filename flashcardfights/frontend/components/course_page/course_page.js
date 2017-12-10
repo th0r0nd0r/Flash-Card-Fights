@@ -14,12 +14,20 @@ class CoursePage extends React.Component {
   componentDidMount() {
     console.log(this.props.match.params.course_id);
     const id = Number(this.props.match.params.course_id);
-    this.props.getCourse(id);
+    this.props.getCourse(id)
+      .then(response => this.setState(response.course));
   }
 
-  componentWillReceiveProps(props) {
-    const currentCourse = Object.values(props.course)[0];
-    this.setState({ course: currentCourse });
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.match.params.course_id !== this.props.match.params.course_id) {
+      console.log("I'm here");
+      console.log(nextProps.match.params.course_id)
+      const id = Number(nextProps.match.params.course_id);
+      this.props.getCourse(id)
+        .then(response => this.setState(response.course));
+      // const currentCourse = Object.values(nextProps.course)[0];
+      // this.setState({ course: currentCourse });
+    }
   }
 
   componentWillUnmount() {

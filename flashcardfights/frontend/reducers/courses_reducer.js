@@ -10,7 +10,7 @@ const coursesReducer = (state = {}, action) => {
       return action.courses;
     case RECEIVE_COURSE:
       const newCourse = { [action.course.id]: action.course };
-      return merge({}, state, newCourse);
+      return newCourse;
     default:
       return state;
   }

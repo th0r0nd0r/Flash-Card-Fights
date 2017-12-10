@@ -11,7 +11,7 @@ import QuizContainer from './quiz/quiz_container';
 import CourseContainer from './course_page/course_page_container';
 import ChallengeIndexContainer from './challenge/challenge_index_container';
 import UserIndexContainer from './user_index/user_index_container';
-
+import ChallengeShowContainer from './challenge/challenge_show_container';
 
 const App = () => {
   return (
@@ -24,8 +24,8 @@ const App = () => {
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
         <ProtectedRoute path="/challenges" component={ChallengeIndexContainer} />
+        <ProtectedRoute path="/quiz/:quiz_id/challenge" component={ChallengeShowContainer} />
         <ProtectedRoute path="/quiz/:quiz_id" component={QuizContainer} />
-        <ProtectedRoute path="/quiz/:quiz_id/friends" component={UserIndexContainer} />
         <ProtectedRoute path="/course/:course_id" component={CourseContainer} />
       </Switch>
     </div>

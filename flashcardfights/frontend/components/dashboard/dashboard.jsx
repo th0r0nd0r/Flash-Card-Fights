@@ -25,9 +25,10 @@ class Dashboard extends React.Component {
           <div className="course-list">
             <ul>
               {Object.keys(this.props.courses).map((course_indx) => {
+                let courseCardClassName = `course-card-${course_indx % 4}`;
                 return(
                 <div>
-                  <li>{this.props.courses[course_indx].title}</li>
+                    <li className={courseCardClassName}>{this.props.courses[course_indx].title}</li>
                   <div className="course-divider"></div>
                 </div>);
               }

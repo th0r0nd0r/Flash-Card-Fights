@@ -111,6 +111,30 @@
   width: 80%;
 }
 
+.course-card-0 {
+  background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.00.36_PM_atoivx.png);
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+
+.course-card-1 {
+  background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.01.07_PM_qsq1i0.png);
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+
+.course-card-2 {
+  background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.01.17_PM_z7g3ue.png);
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+
+.course-card-3 {
+  background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.00.07_PM_jy7m7i.png);
+  background-size: 150%;
+  background-repeat: no-repeat;
+}
+
 .course-list li {
   font-size: 20px;
   font-weight: 900;

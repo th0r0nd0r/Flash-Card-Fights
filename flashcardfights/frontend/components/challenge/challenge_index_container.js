@@ -6,15 +6,16 @@ import { getChallenge, getChallenges, updateChallenge, deleteChallenge, createCh
 const mapStateToProps = (state) => {
   console.log(state);
   return {
+    user: state.session.currentUser,
     challenges: state.entities.challenges
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchChallenges: () => dispatch(getChallenges()),
-  updateChallenge: (challenge) => dispatch(updateChallenge(challenge)),
-  deleteChallenge: id => deleteChallenge(id),
-  createChallenge: challenge => createChallenge(challenge)
+  fetchUserChallenges: (userId) => dispatch(getChallenges(userId)),
+  // updateChallenge: (challenge) => dispatch(updateChallenge(challenge)),
+  // deleteChallenge: id => deleteChallenge(id),
+  // createChallenge: challenge => createChallenge(challenge)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChallengeIndex);

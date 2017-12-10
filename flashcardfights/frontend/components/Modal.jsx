@@ -65,6 +65,7 @@ class AppModal extends React.Component {
       text = "Challenge a Friend";
       classN = "challenge-button";
     }
+    console.log("modal props: ", this.props)
     return (
       <div>
         <a onClick={this.openModal} className={classN}>{text}</a>
@@ -74,9 +75,10 @@ class AppModal extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
+          quizId={this.props.quizId || {}}
         >
 
-          <this.props.action text={text} closeModal={this.closeModal} user={user} />
+          <this.props.action text={text} quizId={this.props.quizId} closeModal={this.closeModal} user={user} />
         </Modal>
       </div>
     );

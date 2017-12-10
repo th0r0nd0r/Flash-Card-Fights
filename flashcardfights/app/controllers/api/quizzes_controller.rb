@@ -32,7 +32,7 @@ class Api::QuizzesController < ApplicationController
     if @quiz.update(quiz_params)
       render "api/quizzes/show"
     else
-      render json: @quiz.errors.full_messages, status:401
+      render json: @quiz.errors.full_messages, status: 401
     end
   end
 

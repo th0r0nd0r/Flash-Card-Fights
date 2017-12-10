@@ -2,6 +2,7 @@ import React from "react";
 import UserIndexContainer from "../user_index/user_index_container";
 import Modal from 'React-Modal';
 import AppModal from "../Modal.jsx";
+import Link from 'react-router-dom';
 
 class ChallengeShow extends React.Component {
   constructor(props) {
@@ -9,9 +10,13 @@ class ChallengeShow extends React.Component {
     this.state = {
       challenge: {}
     };
+
+    this.linkRoute = this.linkRoute.bind(this);
   }
 
-  
+  linkRoute() {
+    return this.props.quizId;
+  }
 
   render() {
     console.log("challenge show props: ", this.props);
@@ -19,6 +24,7 @@ class ChallengeShow extends React.Component {
       <div className="challenge">
         <h1>CHALLENGE YER MATES</h1>
         <AppModal action={UserIndexContainer} quizId={this.props.quizId} className="challenge-button" />
+        <a href={`#/quiz/${this.props.quizId}`}>Start Quiz!</a>
       </div>
     );
   }

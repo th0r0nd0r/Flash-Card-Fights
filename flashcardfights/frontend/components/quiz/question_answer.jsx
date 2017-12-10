@@ -6,6 +6,7 @@ class QuestionAnswer extends React.Component {
   }
 
   render() {
+    console.log("I'M AN ANSWER: ", this.props.answer);
     return(
       <div>
         <p>{this.props.answer.body}</p>
@@ -14,4 +15,4 @@ class QuestionAnswer extends React.Component {
   }
 }
 
-export default QuestionAnswer
+export default QuestionAnswer;

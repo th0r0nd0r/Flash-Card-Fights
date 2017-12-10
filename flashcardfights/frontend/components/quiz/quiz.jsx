@@ -28,8 +28,8 @@ class Quiz extends React.Component {
 
   renderQuestion() {
     const questions = this.state.questions;
-    console.log("QUESTIONS: ", questions)
-    if (!questions.length === 0) {
+    console.log("QUESTIONS: ", questions);
+    if (questions.length !== 0) {
       return(
         <SingleQuestion question={questions[this.state.current]}
                         incrementQuestionCounter={this.incrementQuestionCounter}/>

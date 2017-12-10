@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 class Dashboard extends React.Component {
@@ -92,15 +93,21 @@ class Dashboard extends React.Component {
           <h3>My Courses</h3>
           <div className="course-or-quiz-list">
             <ul>
+              <ReactCSSTransitionGroup
+                transitionName="example"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}>
               {Object.keys(this.state.courses).map((course_indx) => {
                 let courseCardClassName = `course-or-quiz-card-${course_indx % 4}`;
                 return(
                 <div>
                     <li className={courseCardClassName}>{this.state.courses[course_indx].title}</li>
                     <div className="course-or-quiz-divider"></div>
-                </div>);
+                </div>
+                );
               }
-              )}
+            )}
+            </ReactCSSTransitionGroup>
             </ul>
           </div>
         </div>

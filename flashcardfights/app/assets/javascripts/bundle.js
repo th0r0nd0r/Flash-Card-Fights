@@ -44101,10 +44101,14 @@ var _quizzes_reducer = __webpack_require__(349);
 
 var _quizzes_reducer2 = _interopRequireDefault(_quizzes_reducer);
 
+var _subject_reducer = __webpack_require__(417);
+
+var _subject_reducer2 = _interopRequireDefault(_subject_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
-  courses: _courses_reducer2.default, quizzes: _quizzes_reducer2.default
+  courses: _courses_reducer2.default, quizzes: _quizzes_reducer2.default, subjects: _subject_reducer2.default
 });
 
 /***/ }),
@@ -46521,15 +46525,9 @@ exports.default = questionAttemptsReducer;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-<<<<<<< HEAD
 
 var _quiz_actions = __webpack_require__(79);
 
-=======
-
-var _quiz_actions = __webpack_require__(79);
-
->>>>>>> c37a09f64b927227bae6e6c3ff6b30fa0e4a368b
 var _merge = __webpack_require__(37);
 
 var _merge2 = _interopRequireDefault(_merge);
@@ -53180,12 +53178,16 @@ var _dashboard2 = _interopRequireDefault(_dashboard);
 
 var _course_actions = __webpack_require__(125);
 
+var _subject_actions = __webpack_require__(415);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
+  console.log(state);
   return {
     user: state.session.user,
-    courses: state.entities.courses
+    courses: state.entities.courses,
+    subjects: state.entities.subjects
   };
 };
 
@@ -53193,6 +53195,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     getCourses: function getCourses() {
       return dispatch((0, _course_actions.getCourses)());
+    },
+    getSubjects: function getSubjects() {
+      return dispatch((0, _subject_actions.getSubjects)());
     }
   };
 };
@@ -53248,13 +53253,13 @@ var Dashboard = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.getCourses();
+      this.props.getSubjects();
     }
   }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props.courses);
       return _react2.default.createElement(
         'div',
         { className: 'dash' },
@@ -53303,29 +53308,18 @@ var Dashboard = function (_React$Component) {
           _react2.default.createElement(
             'ul',
             null,
-            _react2.default.createElement(
-              'li',
-              null,
-              'Math'
-            ),
-            _react2.default.createElement('div', { className: 'tag-divider' }),
-            _react2.default.createElement(
-              'li',
-              null,
-              'Science'
-            ),
-            _react2.default.createElement('div', { className: 'tag-divider' }),
-            _react2.default.createElement(
-              'li',
-              null,
-              'English'
-            ),
-            _react2.default.createElement('div', { className: 'tag-divider' }),
-            _react2.default.createElement(
-              'li',
-              null,
-              'Rockclimbing'
-            )
+            Object.keys(this.props.subjects).map(function (subject_indx) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _this2.props.subjects[subject_indx].title
+                ),
+                _react2.default.createElement('div', { className: 'tag-divider' })
+              );
+            })
           )
         )
       );
@@ -53429,15 +53423,7 @@ var Quiz = function (_React$Component) {
   }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
-<<<<<<< HEAD
-      var _this2 = this;
-
-      this.props.getQuiz(this.props.match.params.quizId).then(function (quiz) {
-        _this2.setState({ quiz: quiz });
-      });
-=======
       this.props.getQuiz(this.props.match.params.quiz_id);
->>>>>>> c37a09f64b927227bae6e6c3ff6b30fa0e4a368b
     }
   }, {
     key: 'renderQuestion',
@@ -53452,14 +53438,11 @@ var Quiz = function (_React$Component) {
         'div',
         { className: 'quiz' },
         _react2.default.createElement(
-<<<<<<< HEAD
-=======
           'h1',
           null,
           'THIS IS THE QUIZ COMPONENT'
         ),
         _react2.default.createElement(
->>>>>>> c37a09f64b927227bae6e6c3ff6b30fa0e4a368b
           'div',
           { className: 'single-question' },
           this.renderQuestion()
@@ -53604,6 +53587,108 @@ var QuestionAnswer = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = QuestionAnswer;
+
+/***/ }),
+/* 415 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getSubjects = exports.receiveErrors = exports.receiveSubjects = exports.RECEIVE_SUBJECT_ERRORS = exports.RECEIVE_SUBJECTS = undefined;
+
+var _subject_api_util = __webpack_require__(416);
+
+var APIUtil = _interopRequireWildcard(_subject_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_SUBJECTS = exports.RECEIVE_SUBJECTS = "RECEIVE_subjectS";
+var RECEIVE_SUBJECT_ERRORS = exports.RECEIVE_SUBJECT_ERRORS = "RECEIVE_SUBJECT_ERRORS";
+
+var receiveSubjects = exports.receiveSubjects = function receiveSubjects(subjects) {
+  return {
+    type: RECEIVE_SUBJECTS,
+    subjects: subjects
+  };
+};
+
+var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_SUBJECT_ERRORS,
+    errors: errors
+  };
+};
+
+var getSubjects = exports.getSubjects = function getSubjects(filters) {
+  return function (dispatch) {
+    return APIUtil.fetchSubjects(filters).then(function (courses) {
+      return dispatch(receiveSubjects(courses));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+
+/***/ }),
+/* 416 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var fetchSubjects = exports.fetchSubjects = function fetchSubjects(data) {
+  return $.ajax({
+    method: "GET",
+    url: "api/subjects",
+    data: data,
+    err: function err() {
+      return console.log("Error fetching subjects");
+    }
+  });
+};
+
+/***/ }),
+/* 417 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _subject_actions = __webpack_require__(415);
+
+var _merge = __webpack_require__(37);
+
+var _merge2 = _interopRequireDefault(_merge);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var subjectsReducer = function subjectsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+  var newState = (0, _merge2.default)({}, state);
+
+  switch (action.type) {
+    case _subject_actions.RECEIVE_SUBJECTS:
+      return action.subjects;
+    default:
+      return state;
+  }
+};
+
+exports.default = subjectsReducer;
 
 /***/ })
 /******/ ]);

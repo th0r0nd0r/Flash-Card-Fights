@@ -8,15 +8,28 @@ class Quiz extends React.Component {
     this.state = {
       // keys: Object.values(this.props.quiz.questions),
       questions: [],
-      current: 0
+      current: -1,
+      attempts: {}
     };
     this.incrementQuestionCounter = this.incrementQuestionCounter.bind(this);
+    this.recordAttemptScore = this.recordAttemptScore.bind(this);
   }
 
   incrementQuestionCounter() {
     this.setState({ current: this.state.current + 1 });
   }
 
+  recordAttemptScore(score) {
+    this.setState({
+      attempts:
+        {[this.state.current]:score}
+      }
+    );
+  }
+
+  componentWillMount() {
+    this.setState({current:0})
+  }
 
   componentDidMount() {
     const quizId = Number(this.props.match.params.quiz_id);
@@ -34,7 +47,8 @@ class Quiz extends React.Component {
         <SingleQuestion question={questions[this.state.current]}
                         incrementQuestionCounter={this.incrementQuestionCounter}
                         createQuestionAttempt={this.props.createQuestionAttempt}
-                        userId={this.props.currentUser}/>
+                        userId={this.props.currentUser}
+                        recordAttemptScore={this.recordAttemptScore}/>
       );
     } else {
       return (<div></div>);
@@ -42,18 +56,31 @@ class Quiz extends React.Component {
   }
 
   render() {
-    console.log("STATE: ", this.state);
-    console.log("PROPS: ", this.props);
+    console.log('current is ', this.state.current);
+    console.log('questions length is ', this.state.questions.length);
     const quiz = Object.values(this.props.quiz)[0];
     if (quiz) {
-      return(
-        <div className="quiz">
-          <h1>{quiz.name}</h1>
-          <div className="single-question">
-            {this.renderQuestion()}
+      if (this.state.current !== this.state.questions.length) {
+        return(
+          <div className="quiz">
+            <h1>{quiz.name}</h1>
+              <div className="single-question">
+                {this.renderQuestion()}
+              </div>
+            </div>
+          );
+      } else {
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        console.log('object keys of attemps is ', Object.keys(this.state.attempts));
+        return(
+          <div className="quiz">
+            <h1>{quiz.name}</h1>
+              <div>
+                Congratulations, you completed the quiz. Your score was {Object.keys(this.state.attempts).reduce(reducer, 0) / this.state.questions.length}
+              </div>
           </div>
-        </div>
-      );
+        )
+      }
     } else {
       return (<div>LOADING...</div>);
     }

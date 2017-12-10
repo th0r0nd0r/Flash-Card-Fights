@@ -53,7 +53,7 @@ class Dashboard extends React.Component {
       Object.keys(this.state.allCourses).map((course_idx) => {
         Object.values(this.state.allCourses[course_idx].subjects).map((x) => {
           if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredCourses).includes(course_idx)) {
-            filteredCourses[counter2] = this.state.allCourses[course_idx];
+            filteredCourses[course_idx] = this.state.allCourses[course_idx];
             counter2++;
           }
         });
@@ -64,7 +64,7 @@ class Dashboard extends React.Component {
       Object.keys(this.state.allQuizzes).map((quiz_idx) => {
         Object.values(this.state.allQuizzes[quiz_idx].subjects).map((x) => {
           if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredQuizzes).includes(quiz_idx)) {
-            filteredQuizzes[counter3] = this.state.allQuizzes[quiz_idx];
+            filteredQuizzes[quiz_idx] = this.state.allQuizzes[quiz_idx];
             counter3++;
           }
         });
@@ -95,7 +95,7 @@ class Dashboard extends React.Component {
       Object.keys(this.state.allCourses).map((course_idx) => {
         Object.values(this.state.allCourses[course_idx].subjects).map((x) => {
           if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredCourses).includes(course_idx)) {
-            filteredCourses[counter] = this.state.allCourses[course_idx];
+            filteredCourses[course_idx] = this.state.allCourses[course_idx];
             counter ++;
           }
         });
@@ -106,7 +106,7 @@ class Dashboard extends React.Component {
       Object.keys(this.state.allQuizzes).map((quiz_idx) => {
         Object.values(this.state.allQuizzes[quiz_idx].subjects).map((x) => {
           if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredQuizzes).includes(quiz_idx)) {
-            filteredQuizzes[counter3] = this.state.allQuizzes[quiz_idx];
+            filteredQuizzes[quiz_idx] = this.state.allQuizzes[quiz_idx];
             counter3++;
           }
         });

@@ -1,5 +1,7 @@
 import { RECEIVE_QUESTION, RECEIVE_QUESTIONS } from "../actions/question_actions";
 import merge from "lodash/merge";
+import questionAttempts from "./question_attempts_reducer";
+import { combineReducers } from "redux";
 
 const questionsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -16,4 +18,7 @@ const questionsReducer = (state = {}, action) => {
   }
 };
 
-export default questionsReducer;
+export default combineReducers({
+  questions: questionsReducer,
+  questionAttempts
+});

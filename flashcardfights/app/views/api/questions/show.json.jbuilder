@@ -7,3 +7,11 @@ json.answers do
     end
   end
 end
+
+json.question_attempts do
+  @question.question_attempts.each do |attempt|
+    json.set! attempt.id do
+      json.partial! "api/question_attempts/question_attempt", question_attempt: attempt
+    end
+  end
+end

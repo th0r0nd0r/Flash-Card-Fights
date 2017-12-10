@@ -21,18 +21,10 @@ class Header extends React.Component {
     return (
       <div className="logout-header">
         <div className="button-container">
+          <p className="hello-user">HELLO {this.props.user.username}</p>
+          <div className="divider"></div>
           <Link to="#" className="myButton" onClick={this.logout}>Log Out</Link>
         </div>
-        <p className="hello-user">HELLO {this.props.user.username}</p>
-        <div className="divider2"></div>
-        <ul className="login-ul-nav">
-          <Link to="/home" className="home-button"><p>Home</p></Link>
-          <Link to="/train"><p>Train</p></Link>
-          <Link to="/explore"><p>Explore</p></Link>
-          <Link to="/connect"><p>Connect</p></Link>
-        </ul>
-        <img src="http://res.cloudinary.com/ddgt25kwb/image/upload/v1505944279/logo_cpwpsb.png"
-          onClick={() => document.getElementsByClassName("home-button")[0].click()} />
       </div>
     );
   }

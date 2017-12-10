@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210022308) do
+ActiveRecord::Schema.define(version: 20171210024208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 20171210022308) do
     t.string "session_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_educator"
+    t.boolean "is_educator", default: false
     t.string "img_url", default: "http://food.fnr.sndimg.com/content/dam/images/food/editorial/talent/guy-fieri/FN-TalentAvatar-Guy-Fieri-800x800.jpg.rend.hgtvcom.616.616.suffix/1457720995801.jpeg", null: false
   end
 

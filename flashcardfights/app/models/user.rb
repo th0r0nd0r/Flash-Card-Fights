@@ -20,6 +20,16 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :challenges,
+    class_name: "Challenge",
+    foreign_key: :challenger_id,
+    primary_key: :id
+
+  has_many :received_challenges,
+    class_name: "Challenge",
+    foreign_key: :challengee_id,
+    primary_key: :id
+
   has_many :question_attempts
 
   has_many :courses,

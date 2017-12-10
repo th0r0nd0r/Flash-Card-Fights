@@ -7,6 +7,7 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.subjectClick = this.subjectClick.bind(this);
+    this.handleCourseClick = this.handleCourseClick.bind(this);
     this.state = {
       allCourses: {},
       courses: {},
@@ -17,6 +18,7 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.props.getCourses();
     this.props.getSubjects();
+    this.props.getQuizzes();
   }
 
   componentWillReceiveProps(props) {
@@ -25,6 +27,11 @@ class Dashboard extends React.Component {
 
   componentWillUnmount() {
     this.setState({ courses: [] });
+  }
+
+  handleCourseClick(e) {
+    const id = e.target.dataset.id;
+    this.props.history.push(`/course/${id}`);
   }
 
   subjectClick(e) {
@@ -100,7 +107,9 @@ class Dashboard extends React.Component {
                 let courseCardClassName = `course-or-quiz-card-${course_indx % 4}`;
                 return(
                 <div>
-                    <li className={courseCardClassName}>{this.state.courses[course_indx].title}</li>
+                    <Link to={`course/${course_indx}`} >
+                      <li className={courseCardClassName}>{this.state.courses[course_indx].title}</li>
+                    </Link>
                     <div className="course-or-quiz-divider"></div>
                 </div>
                 );

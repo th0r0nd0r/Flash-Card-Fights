@@ -21,6 +21,10 @@ class Dashboard extends React.Component {
     this.setState({ courses: props.courses });
   }
 
+  componentWillUnmount() {
+    this.setState({ courses: [] });
+  }
+
   subjectClick(e) {
     e.preventDefault();
     console.log(e.target.classList);
@@ -49,14 +53,14 @@ class Dashboard extends React.Component {
         <h2>DASHBOARD</h2>
         <div className="my-courses">
           <h3>My Courses</h3>
-          <div className="course-list">
+          <div className="course-or-quiz-list">
             <ul>
               {Object.keys(this.state.courses).map((course_indx) => {
-                let courseCardClassName = `course-card-${course_indx % 4}`;
+                let courseCardClassName = `course-or-quiz-card-${course_indx % 4}`;
                 return(
                 <div>
                     <li className={courseCardClassName}>{this.state.courses[course_indx].title}</li>
-                  <div className="course-divider"></div>
+                    <div className="course-or-quiz-divider"></div>
                 </div>);
               }
               )}

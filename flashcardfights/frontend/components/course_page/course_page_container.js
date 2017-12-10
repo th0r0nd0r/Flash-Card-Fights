@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import CoursePage from './course_page';
-import { getQuizzes } from '../../actions/quiz_actions';
+import { getCourse } from '../../actions/course_actions';
 
 
-const mapStateToProps = (state) => {
-  console.log(state);
+const mapStateToProps = (state, props) => {
+  // console.log("STATE: ", state);
+  // console.log("PROPS: ", props);
   return {
     user: state.session.user,
-    quizzes: state.entities.quizzes
+    course: state.entities.courses
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  getQuizzes: () => dispatch(getQuizzes()),
+const mapDispatchToProps = (dispatch, props) => ({
+  getCourse: (id) => dispatch(getCourse(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);

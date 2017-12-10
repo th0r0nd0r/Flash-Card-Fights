@@ -149,48 +149,48 @@ demo_course_subjects = CourseSubject.create([
 
 demo_course_students = CourseStudent.create([
   {
-    course_id: demo_users[2].id,
-    student_id: demo_courses[2].id
+    course_id: demo_courses[2].id,
+    student_id: demo_users[2].id
   },
   {
-    course_id: demo_users[2].id,
-    student_id: demo_courses[3].id
+    course_id: demo_courses[2].id,
+    student_id: demo_users[3].id
   },
   {
-    course_id: demo_users[2].id,
-    student_id: demo_courses[2].id
+    course_id: demo_courses[2].id,
+    student_id: demo_users[4].id
   },
   {
-    course_id: demo_users[2].id,
-    student_id: demo_courses[3].id
+    course_id: demo_courses[2].id,
+    student_id: demo_users[5].id
   },
   {
-    course_id: demo_users[2].id,
-    student_id: demo_courses[4].id
+    course_id: demo_courses[3].id,
+    student_id: demo_users[2].id
   },
   {
-    course_id: demo_users[2].id,
-    student_id: demo_courses[5].id
+    course_id: demo_courses[3].id,
+    student_id: demo_users[3].id
   },
   {
-    course_id: demo_users[3].id,
-    student_id: demo_courses[0].id
+    course_id: demo_courses[3].id,
+    student_id: demo_users[4].id
   },
   {
-    course_id: demo_users[3].id,
-    student_id: demo_courses[1].id
+    course_id: demo_courses[3].id,
+    student_id: demo_users[5].id
   },
   {
-    course_id: demo_users[3].id,
-    student_id: demo_courses[2].id
+    course_id: demo_courses[3].id,
+    student_id: demo_users[6].id
   },
   {
-    course_id: demo_users[3].id,
-    student_id: demo_courses[3].id
+    course_id: demo_courses[3].id,
+    student_id: demo_users[7].id
   },
   {
-    course_id: demo_users[3].id,
-    student_id: demo_courses[4].id
+    course_id: demo_courses[2].id,
+    student_id: demo_users[6].id
   },
 ])
 
@@ -201,6 +201,17 @@ demo_quizzes = Quiz.create([
   {
     name: "Colors Quiz"
   }
+])
+
+demo_course_quizzes = CourseQuiz.create([
+  {
+    course_id: demo_courses[2].id,
+    quiz_id: demo_quizzes[0].id
+  },
+  {
+    course_id: demo_courses[3].id,
+    quiz_id: demo_quizzes[1].id
+  },
 ])
 
 demo_questions = Question.create!([

@@ -103,7 +103,7 @@
   flex-direction: column;
 }
 
-.course-list ul {
+.course-or-quiz-list ul {
   display: flex;
   font-family: 'Indie Flower', sans-serif;
   text-align: center;
@@ -113,31 +113,31 @@
   width: 80%;
 }
 
-.course-card-0 {
+.course-or-quiz-card-0 {
   background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.00.36_PM_atoivx.png);
   background-size: 150%;
   background-repeat: no-repeat;
 }
 
-.course-card-1 {
+.course-or-quiz-card-1 {
   background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.01.07_PM_qsq1i0.png);
   background-size: 150%;
   background-repeat: no-repeat;
 }
 
-.course-card-2 {
+.course-or-quiz-card-2 {
   background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.01.17_PM_z7g3ue.png);
   background-size: 150%;
   background-repeat: no-repeat;
 }
 
-.course-card-3 {
+.course-or-quiz-card-3 {
   background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.00.07_PM_jy7m7i.png);
   background-size: 150%;
   background-repeat: no-repeat;
 }
 
-.course-list li {
+.course-or-quiz-list li {
   font-size: 20px;
   font-weight: 900;
   list-style: none;
@@ -152,13 +152,13 @@
   transition: all .2s ease-in-out;
 }
 
-.course-list li:hover {
+.course-or-quiz-list li:hover {
   background-color: rgb(223, 215, 215);
   transform: scale(1.1);
   /* color: white; */
 }
 
-.course-divider {
+.course-or-quiz-divider {
   width: 20px;
   height: 20px;
 }

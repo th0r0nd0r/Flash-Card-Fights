@@ -49577,7 +49577,7 @@ var Greeting = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'splash' },
-        _react2.default.createElement('img', { src: 'http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2522/v1512863717/study_tszv05.jpg' })
+        _react2.default.createElement('img', { src: 'http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2245/v1512865824/black-girls-code_tlj07k.jpg' })
       );
     }
   }]);

@@ -16,7 +16,7 @@ class Greeting extends React.Component {
   render() {
     return (
       <div className="splash">
-        <img src="http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2522/v1512863717/study_tszv05.jpg"/>
+        <img src="http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2245/v1512865824/black-girls-code_tlj07k.jpg"/>
       </div>);
   }
 }

@@ -5,7 +5,7 @@ class Quiz extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keys: Object.values(this.props.quiz.questions),
+      // keys: Object.values(this.props.quiz.questions),
       question: 0
     };
     this.incrementQuestionCounter = this.incrementQuestionCounter.bind(this);
@@ -17,7 +17,7 @@ class Quiz extends React.Component {
 
 
   componentWillMount() {
-    this.props.getQuiz(this.props.match.params.quiz_id);
+    this.props.fetchQuiz(this.props.match.params.quiz_id);
   }
 
   renderQuestion() {

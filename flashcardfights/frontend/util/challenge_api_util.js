@@ -1,8 +1,7 @@
-export const fetchChallenges = data =>
+export const fetchChallenges = user_id =>
   $.ajax({
     method: "GET",
-    url: "api/challenges",
-    data,
+    url: `api/users/${user_id}/challenges`,
     err: () => console.log("Error fetching challenges")
   });
 

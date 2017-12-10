@@ -1,9 +1,11 @@
 class Api::ChallengesController < ApplicationController
 
   def index
-    if params[:challengee_id]
-      user = User.find_by(id: params[:challengee_id])
+    if params[:user_id]
+      user = User.find_by(id: params[:user_id].to_i)
       @challenges = user.received_challenges
+    else
+      @challenges = Challenge.all
     end
     render "api/challenges/index"
   end

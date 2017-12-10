@@ -22,6 +22,10 @@
    background-color: rgb(255, 255, 255);
  }
 
+ .no-underline a {
+   text-decoration: none;
+ }
+
  .login-header, .logout-header {
    color: white;
    display: flex;
@@ -50,8 +54,39 @@
    font-size: 20px;
  }
 
+ .hello-user {
+   color: rgb(230,230,230);
+ }
+
+ .hello-user:hover {
+   color: white;
+ }
+
+  .logout-link {
+   color: rgb(230,230,230);
+ }
+
+ .logout-link:hover {
+   color: white;
+ }
+
  .divider {
    width: 50px;
+ }
+
+ .challenge-link {
+   padding: 10px;
+   background-color: rgb(0, 200, 150);
+   margin: 10px;
+   border-radius: 4px;
+   width: 350px;
+   color: white;
+   cursor: pointer;
+   text-decoration: none;
+ }
+
+ .challenge-link:hover {
+   font-weight: 900;
  }
 
  .signup-button, .login-button {
@@ -59,7 +94,10 @@
   margin-bottom: 20px;
  }
 
-.splash {
+.splash button{
+  border-radius: 5px;
+  background-color: whitesmoke;
+  color: #02c896;
 }
 
 .splash img {
@@ -306,4 +344,41 @@
 
 .quizzes {
   width: 1000px;
+}
+
+.quiz {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-divider {
+  height: 50px;
+  width: 50px;
+}
+
+.single-question h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.indiv-question {
+  display: flex;
+}
+
+.indiv-question button {
+  padding: 20px 80px;
+  margin: 10px 0;
+  max-width: 168px;
+  min-width: 168px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
 }

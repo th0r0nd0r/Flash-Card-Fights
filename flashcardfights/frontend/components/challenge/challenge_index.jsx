@@ -1,6 +1,7 @@
 import React from "react";
 import Users from "../user_index/user_index";
 import Modal from "../Modal.jsx";
+import ChallengeIndexItem from "./challenge_index_item";
 
 class ChallengeIndex extends React.Component {
   constructor(props) {
@@ -16,11 +17,13 @@ class ChallengeIndex extends React.Component {
   }
 
   render() {
-    console.log("PROPS: ", this.props)
-    console.log("STATE: ", this.state)
+    console.log("PROPS: ", this.props);
+    console.log("STATE: ", this.state);
+    const challenges = this.state.challenges;
     return(
       <div>
-        <h1>Active challenges</h1>
+        <h1>Active challenges ({ challenges.length })</h1>
+        { challenges.map((challenge) => <ChallengeIndexItem challenge={challenge} />)}
       </div>
     );
   }

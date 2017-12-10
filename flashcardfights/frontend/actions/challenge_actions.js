@@ -20,7 +20,7 @@ export const receiveErrors = errors => ({
 });
 
 export const getChallenges = filters => dispatch =>
-  APIUtil.fetchCHALLENGES(filters).then(
+  APIUtil.fetchChallenges(filters).then(
     challenges => dispatch(receiveChallenges(challenges)),
     err => dispatch(receiveErrors(err.responseJSON))
   );

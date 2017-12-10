@@ -15,6 +15,7 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     padding: '0',
     width: '30%',
+    height: '50%',
     'borderRadius': '5px'
   }
 };
@@ -65,6 +66,7 @@ class AppModal extends React.Component {
       text = "Challenge a Friend";
       classN = "challenge-button";
     }
+    console.log("modal props: ", this.props)
     return (
       <div>
         <a onClick={this.openModal} className={classN}>{text}</a>
@@ -74,9 +76,10 @@ class AppModal extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
+          quizId={this.props.quizId || {}}
         >
 
-          <this.props.action text={text} closeModal={this.closeModal} user={user} />
+          <this.props.action closeModal={this.closeModal} text={text} quizId={this.props.quizId} closeModal={this.closeModal} user={user} />
         </Modal>
       </div>
     );

@@ -11,7 +11,8 @@ class Dashboard extends React.Component {
     this.state = {
       allCourses: {},
       courses: {},
-      filters: {}
+      filters: {},
+      quizzes: {}
     };
   }
 
@@ -22,7 +23,7 @@ class Dashboard extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({ allCourses: props.courses, courses: props.courses });
+    this.setState({ allCourses: props.courses, courses: props.courses, quizzes: props.quizzes.quizzes });
   }
 
   componentWillUnmount() {
@@ -92,6 +93,7 @@ class Dashboard extends React.Component {
   }
   
   render() {
+    console.log("STATE", this.state.quizzes);
     return (
       <div className="dash">
         <h2>DASHBOARD</h2>
@@ -119,18 +121,33 @@ class Dashboard extends React.Component {
             </ul>
           </div>
         </div>
-        <div className="tags">
-          <h3>Tags</h3>
-          <ul>
-            {Object.keys(this.props.subjects).map((subject_indx) => {
-              return (
-                <div>
-                  <li onClick={this.subjectClick} data-subject={`${this.props.subjects[subject_indx].title}`}>{this.props.subjects[subject_indx].title}</li>
-                  <div className="tag-divider"></div>
-                </div>);
-            }
-            )}
-          </ul>
+        <div className="tags_and_quizzes">
+          <div className="tags">
+            <h3>Tags</h3>
+            <ul>
+              {Object.keys(this.props.subjects).map((subject_indx) => {
+                return (
+                  <div>
+                    <li onClick={this.subjectClick} data-subject={`${this.props.subjects[subject_indx].title}`}>{this.props.subjects[subject_indx].title}</li>
+                    <div className="tag-divider"></div>
+                  </div>);
+              }
+              )}
+            </ul>
+          </div>
+          <div className="quizzes">
+              <h3>Quizzes</h3>
+              <ul>
+                {Object.keys(this.state.quizzes).map((quiz_indx) => {
+                  return (
+                    <div>
+                      <li>{this.state.quizzes[quiz_indx].name}</li>
+                      <div className="tag-divider"></div>
+                    </div>);
+                }
+                )}
+              </ul>
+          </div>
         </div>
 
       </div>);

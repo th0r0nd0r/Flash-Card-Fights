@@ -10,6 +10,7 @@ class Dashboard extends React.Component {
     this.handleCourseClick = this.handleCourseClick.bind(this);
     this.state = {
       allCourses: {},
+      allQuizzes: {},
       courses: {},
       filters: {},
       quizzes: {}
@@ -23,7 +24,7 @@ class Dashboard extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({ allCourses: props.courses, courses: props.courses, quizzes: props.quizzes.quizzes });
+    this.setState({ allCourses: props.courses, courses: props.courses, allQuizzes: props.quizzes.quizzes, quizzes: props.quizzes.quizzes });
   }
 
   componentWillUnmount() {
@@ -57,13 +58,26 @@ class Dashboard extends React.Component {
           }
         });
       });
-      console.log(newFilters);
+
+      let filteredQuizzes = {};
+      let counter3 = 1;
+      Object.keys(this.state.allQuizzes).map((quiz_idx) => {
+        Object.values(this.state.allQuizzes[quiz_idx].subjects).map((x) => {
+          if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredQuizzes).includes(quiz_idx)) {
+            filteredQuizzes[counter3] = this.state.allQuizzes[quiz_idx];
+            counter3++;
+          }
+        });
+      });
+
       if (Object.keys(newFilters).length === 0) {
         this.setState({ courses: this.state.allCourses });
         this.setState({ filters: newFilters });
+        this.setState({ quizzes: this.state.allQuizzes });
       } else {
         this.setState({filters: newFilters});
         this.setState({ courses: filteredCourses });
+        this.setState({ quizzes: filteredQuizzes });
       }
     } else {
       e.target.classList.add("tags-active");
@@ -86,14 +100,27 @@ class Dashboard extends React.Component {
           }
         });
       });
+
+      let filteredQuizzes = {};
+      let counter3 = 1;
+      Object.keys(this.state.allQuizzes).map((quiz_idx) => {
+        Object.values(this.state.allQuizzes[quiz_idx].subjects).map((x) => {
+          if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredQuizzes).includes(quiz_idx)) {
+            filteredQuizzes[counter3] = this.state.allQuizzes[quiz_idx];
+            counter3++;
+          }
+        });
+      });
+
       console.log("FILTERED COURSES", filteredCourses);
       this.setState({ courses: filteredCourses });
+      this.setState({ quizzes: filteredQuizzes });
     }
     console.log("state", this.state.filters);
   }
   
   render() {
-    console.log("STATE", this.state.quizzes);
+    console.log("STATE", this.state);
     return (
       <div className="dash">
         <h2>DASHBOARD</h2>

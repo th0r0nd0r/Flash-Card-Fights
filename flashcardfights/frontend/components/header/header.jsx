@@ -22,16 +22,18 @@ class Header extends React.Component {
       <div className="logout-header">
         <div className="header-left">
           <div className="header-logo">
+            <div className="header-logo">
             <Link to="/">
               <p className="header-logo-text">FCF</p>
             </Link>
           </div>
+          </div>
         </div>
         <div className="header-right">
           <div className="button-container">
-            <p className="hello-user">HELLO {this.props.user.username}</p>
+            <Link to="/challenges" className="hello-user">Hello, {this.props.user.username}</Link>
             <div className="divider"></div>
-            <Link to="#" className="myButton" onClick={this.logout}>Log Out</Link>
+            <Link to="#" className="logout-link" onClick={this.logout}>Log Out</Link>
           </div>
         </div>
       </div>

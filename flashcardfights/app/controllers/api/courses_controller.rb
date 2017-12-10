@@ -10,12 +10,12 @@ class Api::CoursesController < ApplicationController
   end
   
   def index
-    @courses = Course.all
+    @courses = Course.all.includes(:course_subjects)
     render "api/courses/index"
   end
   
   def show
-    @course = Course.find(params[:id])
+    @course = Course.find(params[:id]).includes(:course_subjects)
     if @course
       render "api/courses/show"
     else
@@ -45,7 +45,7 @@ class Api::CoursesController < ApplicationController
   private
   
   def course_params
-    params.require(:course).permit(:title, :educator_id)
+    params.require(:course).permit(:title, :educator_id, :course_subjects)
   end
   
 end

@@ -1,3 +1,3 @@
-json.extract! question, :id, :body
+json.extract! question, :id, :body, :average_score
 
 

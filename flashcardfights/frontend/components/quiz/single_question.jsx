@@ -5,7 +5,8 @@ class SingleQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      start_time: ""
+      start_time: "",
+      time_left: 20
     }
     this.handleCorrectSubmit = this.handleCorrectSubmit.bind(this);
     this.handleIncorrectSubmit = this.handleIncorrectSubmit.bind(this);
@@ -64,9 +65,8 @@ class SingleQuestion extends React.Component {
   }
 
   render() {
-    console.log("SINGLE QUESTION PROPS: ", this.props);
     return(
-      <div>
+      <div className="single-question">
         <h1>{this.props.question.body}</h1>
         {this.renderAnswers()}
       </div>

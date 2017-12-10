@@ -84,14 +84,27 @@ class Quiz extends React.Component {
           score: score
         }
         this.props.createQuizAttempt(attempt);
-        return(
-          <div className="quiz">
-            <h1>{quiz.name}</h1>
-              <div>
-                Congratulations, you completed the quiz. Your score was {score}
+        if (score >= 50) {
+          return(
+            <div className="quiz">
+              <h1>{quiz.name}</h1>
+                <div>
+                  Congratulations, you completed the quiz. Your score was {score} <br/>
+                  You beat the average score of 50!
+                </div>
               </div>
-          </div>
-        )
+            )
+        } else {
+          return(
+            <div className="quiz">
+              <h1>{quiz.name}</h1>
+                <div>
+                  Congratulations, you completed the quiz. Your score was {score} <br/>
+                  You did not beat the average score of 50.
+                </div>
+              </div>
+          )
+        }
       }
     } else {
       return (<div>LOADING...</div>);

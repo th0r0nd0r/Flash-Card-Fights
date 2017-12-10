@@ -205,13 +205,13 @@
   margin-right: 20px;
   cursor: pointer;
   transition: all .2s ease-in-out;
-  
+
 }
 
 .example-enter {
 	margin-top: 30px;
 	opacity: .01;
-	
+
 }
 
 .example-enter.example-enter-active {
@@ -221,9 +221,9 @@
 }
 
 .example-leave {
-	margin-top: 0px;	
+	margin-top: 0px;
 	opacity: 1;
-	
+
 }
 
 .example-leave.example-leave-active {
@@ -306,7 +306,7 @@
   margin-right: 20px;
   cursor: pointer;
   transition: all .2s ease-in-out;
-  
+
 }
 
 .quizzes a {
@@ -381,4 +381,21 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+}
+
+#progressBar {
+  width: 90%;
+  margin: 10px auto;
+  height: 22px;
+  background-color: #0A5F44;
+}
+
+#progressBar div {
+  height: 100%;
+  text-align: right;
+  padding: 0 10px;
+  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+  width: 0;
+  background-color: #CBEA00;
+  box-sizing: border-box;
 }

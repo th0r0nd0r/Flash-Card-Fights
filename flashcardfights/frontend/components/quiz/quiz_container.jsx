@@ -1,6 +1,8 @@
 import {connect} from 'react-redux';
 import Quiz from './quiz';
-import getQuiz from '../../actions/quiz_actions';
+import {getQuiz} from '../../actions/quiz_actions';
+
+console.log("get Quiz: ", getQuiz);
 
 const mapStateToProps = (state, ownProps) => ({
   quiz: state.entities.quiz

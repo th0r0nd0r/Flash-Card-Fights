@@ -1,10 +1,11 @@
 import React from "react";
+import Users from "../user_index/user_index";
+import Modal from "../Modal.jsx";
 
 class Challenge extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      classmates: {},
       challenge: {}
     };
   }
@@ -12,6 +13,10 @@ class Challenge extends React.Component {
   
 
   render() {
-    <div>CHALLENGE YER MATES</div>
+    <div>
+      <h1>CHALLENGE YER MATES</h1>
+      <Modal>
+      </Modal>
+    </div>;
   }
 }

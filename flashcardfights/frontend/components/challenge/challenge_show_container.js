@@ -8,14 +8,16 @@ import {
   createChallenge
 } from "../../actions/challenge_actions";
 import { selectChallenge } from "../../reducers/selectors";
+import { selectQuiz } from "../../reducers/selectors";
+
 
 const mapStateToProps = (state, { match }) => {
-   const challengeId = parseInt(match.params.challengeId);
-   const challenge = selectChallenge(state.entities, match.params.challengeId);
+   const quizId = parseInt(match.params.quizId);
+   const quiz = selectQuiz(state.entities, match.params.quizId);
   //  const currentUser = state.session.currentUser;
   return {
-    challengeId: challengeId,
-    challenge: challenge,
+    quizId: quizId,
+    quiz: quiz
     // challenges: state.entities.challenges
     // currentUser
   };

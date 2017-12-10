@@ -1,6 +1,7 @@
 import React from "react";
 import Users from "../user_index/user_index";
-import Modal from "../Modal.jsx";
+import Modal from 'React-Modal';
+import AppModal from "../Modal.jsx";
 
 class Challenge extends React.Component {
   constructor(props) {
@@ -15,8 +16,8 @@ class Challenge extends React.Component {
   render() {
     <div>
       <h1>CHALLENGE YER MATES</h1>
-      <Modal>
-      </Modal>
+      <AppModal>
+      </AppModal>
     </div>;
   }
 }

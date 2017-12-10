@@ -12,7 +12,7 @@ class Quiz extends React.Component {
   }
 
   incrementQuestionCounter() {
-    this.setState({question:this.state.question+1})
+    this.setState({question:this.state.question+1});
   }
 
   

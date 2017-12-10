@@ -10,8 +10,8 @@ class QuestionAnswer extends React.Component {
       <div>
         <p>{this.props.answer.body}</p>
       </div>
-    )
+    );
   }
 }
 
-export default QuestionAnswer
+export default QuestionAnswer;

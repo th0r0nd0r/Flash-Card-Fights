@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import SignInFormContainer from './session_form/signin_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
+import UserIndexContainer from './user_index/user_index_container';
 const customStyles = {
   content: {
     top: '50%',
@@ -60,6 +61,9 @@ class AppModal extends React.Component {
       text = "Sign Up";
       classN = "signup-button";
       user = { username: "", password: "" };
+    } else if (this.props.action === UserIndexContainer) {
+      text = "Challenge a Friend";
+      classN = "challenge-button";
     }
     return (
       <div>

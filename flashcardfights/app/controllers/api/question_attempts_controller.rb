@@ -1,4 +1,4 @@
-class Api::QuestionAttemptController < ApplicationController
+class Api::QuestionAttemptsController < ApplicationController
 
   def create
     @question_attempt = QuestionAttempt.create(question_attempt_params)
@@ -18,7 +18,7 @@ class Api::QuestionAttemptController < ApplicationController
       render json: "Could not destroy what was not found", status: 404
     end
   end
-  
+
   def show
     @question_attempt = QuestionAttempt.find(params[:id])
     if @question_attempt
@@ -29,7 +29,7 @@ class Api::QuestionAttemptController < ApplicationController
   end
 
   private
-  
+
   def question_attempt_params
     params.require(:question_attempt).permit(:question_id, :user_id, :score)
   end

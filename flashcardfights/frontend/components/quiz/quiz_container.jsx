@@ -8,7 +8,8 @@ import { createQuestionAttempt } from '../../actions/question_attempt_actions';
 const mapStateToProps = (state, ownProps) => {
   console.log(state);
   return{
-    quiz: state.entities.quizAccoutrements.quizzes
+    quiz: state.entities.quizAccoutrements.quizzes,
+    currentUser: state.session.currentUser.id
   };
 };
 

@@ -15,6 +15,7 @@ Question.destroy_all
 QuizQuestion.destroy_all
 Answer.destroy_all
 Challenge.destroy_all
+Subject.destroy_all
 
 demo_users = User.create([
   {

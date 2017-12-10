@@ -4,11 +4,18 @@ import QuestionAnswer from './question_answer';
 class SingleQuestion extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    // do some action stuff here like dispatch
+    // action to create question attempt and .then
+    this.props.incrementQuestionCounter();
   }
 
   renderAnswers() {
     let answers = Object.values(this.props.question.answers).map(answer => {
-      <QuestionAnswer answer={answer}/>
+      <QuestionAnswer answer={answer} handleSubmit={this.handleSubmit}/>
     });
   }
 

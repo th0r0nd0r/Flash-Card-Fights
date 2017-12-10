@@ -3,7 +3,7 @@ class Api::ChallengesController < ApplicationController
   def index
 
   end
-  
+
   def create
     @challenge = Challenge.create(challenge_params)
     if @challenge.save!
@@ -15,13 +15,13 @@ class Api::ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
-    render "api/challenge/show"
+    render "api/challenges/show"
   end
 
   def update
     @challenge = Challenge.find(params[:id])
     if @challenge.update(challenges_params)
-      render "api/challenge/show"
+      render "api/challenges/show"
     else
       render json: @challenge.errors.full_messages, status: 401
     end

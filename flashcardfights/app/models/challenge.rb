@@ -14,12 +14,12 @@
 #
 
 class Challenge < ApplicationRecord
-  has_one :challenger,
+  belongs_to :challenger,
     class_name: "User",
     foreign_key: :challenger_id,
     primary_key: :id
 
-  has_one :challengee,
+  belongs_to :challengee,
     class_name: "User",
     foreign_key: :challengee_id,
     primary_key: :id

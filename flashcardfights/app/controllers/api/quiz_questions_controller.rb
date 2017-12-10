@@ -8,6 +8,25 @@ class Api::QuizQuestionsController < ApplicationController
       render @quiz_questions.errors.full_messages
     end
   end
+  
+  def destroy
+    @quiz_question = QuizQuestion.find(params[:id])
+    if @quiz_question
+      QuizQuestion.destroy(@quiz_question.id)
+      render "api/quiz_questions/show"
+    else
+      render json: "Could not find quiz question to destroy", status: 404
+    end
+  end
+
+  def show
+    @quiz_question = QuizQuestion.find(params[:id])
+    if @quiz_question
+      render "api/quiz_questions/show"
+    else
+      render json: "Could not find quiz question to show", status: 404
+    end
+  end
 
   private
   

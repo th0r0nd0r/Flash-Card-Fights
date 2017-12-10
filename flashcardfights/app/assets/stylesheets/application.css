@@ -30,6 +30,10 @@
    display: flex;
  }
 
+ .login-header a {
+  cursor: pointer;
+ }
+
  .divider {
    width: 50px;
  }
@@ -45,4 +49,32 @@
 .splash img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.splash h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  bottom: 600px;
+  left: 120px;
+}
+
+.splash h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  bottom: 500px;
+  left: 120px;
+}
+
+.large-signup {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  color: black;
+  position: absolute;
+  bottom: 400px;
+  left: 220px;
+  cursor: pointer;
 }

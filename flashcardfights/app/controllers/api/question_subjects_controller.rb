@@ -8,6 +8,25 @@ class Api::QuestionSubjectsController < ApplicationController
       render @question_subject.errors.full_messages
     end
   end
+  
+  def destroy
+    @question_subject = QuestionSubject.find(params[:id])
+    if @question_subject
+      QuestionSubject.destroy(@question_subect.id)
+      render "api/question_subjects/show"
+    else
+      render "Couldn't find question subject to destroy"
+    end
+  end
+  
+  def show
+    @question_subject = QuestionSubject.find(params[:id])
+    if @question_subject
+      render "api/question_subjects/show"
+    else
+      render "Could not find question subject"
+    end
+  end
 
   private
   

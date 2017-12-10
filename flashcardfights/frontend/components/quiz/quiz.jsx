@@ -21,14 +21,19 @@ class Quiz extends React.Component {
   componentDidMount() {
     const quizId = Number(this.props.match.params.quiz_id);
     this.props.fetchQuiz(quizId)
-      .then(response => this.setState(response.quiz));
+      .then(response => this.setState({quiz: response.quiz}));
   }
 
   renderQuestion() {
-    return(
-      <SingleQuestion question={this.props.quiz.questions[this.state.question]}
-                      incrementQuestionCounter={this.incrementQuestionCounter}/>
-    );
+    const quiz = this.props.quiz;
+    if (quiz) {
+      return(
+        <SingleQuestion question={quiz.questions[this.state.question]}
+                        incrementQuestionCounter={this.incrementQuestionCounter}/>
+      );
+    } else {
+      return (<div></div>);
+    }
   }
 
   render() {
@@ -38,7 +43,7 @@ class Quiz extends React.Component {
       <div className="quiz">
         <h1>THIS IS THE QUIZ COMPONENT</h1>
         <div className="single-question">
-          {/* {this.renderQuestion()} */}
+          {this.renderQuestion()}
         </div>
       </div>
     );

@@ -15,7 +15,7 @@ class CoursePage extends React.Component {
     console.log(this.props.match.params.course_id);
     const id = Number(this.props.match.params.course_id);
     this.props.getCourse(id)
-      .then(response => this.setState(response.course));
+      .then(response => this.setState({ course: response.course }));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,7 +24,7 @@ class CoursePage extends React.Component {
       console.log(nextProps.match.params.course_id)
       const id = Number(nextProps.match.params.course_id);
       this.props.getCourse(id)
-        .then(response => this.setState(response.course));
+        .then(response => this.setState({course: response.course}));
       // const currentCourse = Object.values(nextProps.course)[0];
       // this.setState({ course: currentCourse });
     }

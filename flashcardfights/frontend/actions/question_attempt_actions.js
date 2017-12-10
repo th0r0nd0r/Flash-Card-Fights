@@ -31,12 +31,12 @@ export const getQuestionAttempt = id => dispatch =>
     err => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const createQuestionAttempt = question => dispatch =>
-  APIUtil.createQuestionAttempt(question).then(
-    newQuestion => {
-      dispatch(receiveQuestionAttempt(newQuestion));
-      if (newQuestion) {
-        return newQuestion;
+export const createQuestionAttempt = questionId => dispatch =>
+  APIUtil.createQuestionAttempt(questionId).then(
+    newAttempt => {
+      dispatch(receiveQuestionAttempt(newAttempt));
+      if (newAttempt) {
+        return newAttempt;
       }
     },
     err => dispatch(receiveErrors(err.responseJSON))

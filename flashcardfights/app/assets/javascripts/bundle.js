@@ -53271,12 +53271,13 @@ var Dashboard = function (_React$Component) {
               'ul',
               null,
               Object.keys(this.props.courses).map(function (course_indx) {
+                var courseCardClassName = 'course-card-' + course_indx % 4;
                 return _react2.default.createElement(
                   'div',
                   null,
                   _react2.default.createElement(
                     'li',
-                    null,
+                    { className: courseCardClassName },
                     _this2.props.courses[course_indx].title
                   ),
                   _react2.default.createElement('div', { className: 'course-divider' })

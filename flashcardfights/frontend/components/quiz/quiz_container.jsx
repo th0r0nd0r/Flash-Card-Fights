@@ -5,11 +5,11 @@ import {getQuiz} from '../../actions/quiz_actions';
 console.log("get Quiz: ", getQuiz);
 
 const mapStateToProps = (state, ownProps) => ({
-  quiz: state.entities.quiz
+  quiz: state.entities.quizzes
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getQuiz: id => dispatch(getQuiz(id))
+  fetchQuiz: id => dispatch(getQuiz(id))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Quiz);

@@ -26,7 +26,7 @@ export const getQuizzes = filters => dispatch =>
     err => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const getQuiz = id => dispatch =>
+export const getQuiz = id => dispatch => 
   APIUtil.fetchQuiz(id).then(
     quiz => dispatch(receiveQuiz(quiz)),
     err => dispatch(receiveErrors(err.responseJSON))

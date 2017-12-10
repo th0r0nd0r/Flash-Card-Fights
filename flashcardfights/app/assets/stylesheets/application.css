@@ -233,3 +233,9 @@
   color: white;
 }
 
+.challenge-button {
+  background-color: rgb(194, 113, 113);
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}

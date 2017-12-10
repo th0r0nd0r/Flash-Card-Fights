@@ -1,9 +1,9 @@
 import React from "react";
-import Users from "../user_index/user_index";
+import UserIndexContainer from "../user_index/user_index_container";
 import Modal from 'React-Modal';
 import AppModal from "../Modal.jsx";
 
-class Challenge extends React.Component {
+class ChallengeShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,10 +14,13 @@ class Challenge extends React.Component {
   
 
   render() {
-    <div>
-      <h1>CHALLENGE YER MATES</h1>
-      <AppModal>
-      </AppModal>
-    </div>;
+    return (
+      <div className="challenge">
+        <h1>CHALLENGE YER MATES</h1>
+        <AppModal action={UserIndexContainer} className="challenge-button" />
+      </div>
+    );
   }
 }
+
+export default ChallengeShow;

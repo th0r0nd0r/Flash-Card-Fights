@@ -1,6 +1,7 @@
 import React from "react";
 import Users from "../user_index/user_index";
 import Modal from "../Modal.jsx";
+import ChallengeIndexItem from "./challenge_index_item";
 
 class ChallengeIndex extends React.Component {
   constructor(props) {
@@ -22,9 +23,7 @@ class ChallengeIndex extends React.Component {
     return(
       <div>
         <h1>Active challenges ({ challenges.length })</h1>
-        <ul>
-          { challenges.map((challenge) => <li>{challenge.challenger.username} challenges you on { challenge.quiz.name }</li>)}
-        </ul>
+        { challenges.map((challenge) => <ChallengeIndexItem challenge={challenge} />)}
       </div>
     );
   }

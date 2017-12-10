@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:new, :create, :index, :show, :update, :destroy] do
       resources :quiz_attempts, only: [:create, :destroy, :show]
     end
+    resources :challenges, 
     resources :subjects, only: [:new, :create, :index, :show, :update, :destroy]
     resources :questions, only: [:new, :create, :index, :show, :update, :destroy] do
       resources :question_attempts, only: [:create, :destroy, :show]

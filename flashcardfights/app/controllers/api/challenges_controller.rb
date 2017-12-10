@@ -1,5 +1,9 @@
 class Api::ChallengesController < ApplicationController
 
+  def index
+
+  end
+  
   def create
     @challenge = Challenge.create(challenge_params)
     if @challenge.save!

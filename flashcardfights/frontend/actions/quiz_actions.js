@@ -3,9 +3,6 @@ import * as APIUtil from "../util/Quiz_api_util";
 export const RECEIVE_QUIZZES = "RECEIVE_QUIZZES";
 export const RECEIVE_QUIZ = "RECEIVE_QUIZ";
 export const RECEIVE_QUIZ_ERRORS = "RECEIVE_QUIZ_ERRORS";
-export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
-export const UPDATE_REVIEW = "UPDATE_REVIEW";
-export const DELETE_REVIEW = "DELETE_REVIEW";
 
 export const receiveQuizzes = quizzes => ({
   type: RECEIVE_QUIZZES,
@@ -22,20 +19,6 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const receiveReview = review => ({
-  type: RECEIVE_REVIEW,
-  review
-});
-
-export const patchReview = review => ({
-  type: UPDATE_REVIEW,
-  review
-});
-
-export const destroyReview = review => ({
-  type: DELETE_REVIEW,
-  review
-});
 
 export const getQuizzes = filters => dispatch =>
   APIUtil.fetchQuizzes(filters).then(

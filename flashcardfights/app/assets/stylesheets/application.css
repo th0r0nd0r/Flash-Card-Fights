@@ -150,6 +150,36 @@
   margin-right: 20px;
   cursor: pointer;
   transition: all .2s ease-in-out;
+  
+}
+
+.example-enter {
+	margin-top: 30px;
+	opacity: .01;
+	
+}
+
+.example-enter.example-enter-active {
+  margin-top: 0px;
+  opacity: 1;
+  transition: opacity .5s ease, margin .5s ease;
+}
+
+.example-leave {
+	margin-top: 0px;	
+	opacity: 1;
+	
+}
+
+.example-leave.example-leave-active {
+  margin-top: -30px;
+  opacity: .01;
+  transition: opacity .3s ease, margin .5s ease;
+}
+
+.course-or-quiz-list span {
+  display: flex;
+  flex-flow: wrap;
 }
 
 .course-or-quiz-list li:hover {
@@ -196,3 +226,4 @@
   background-color: darkgray;
   color: white;
 }
+

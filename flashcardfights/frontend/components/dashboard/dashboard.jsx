@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 class Dashboard extends React.Component {
@@ -8,7 +9,9 @@ class Dashboard extends React.Component {
     super(props);
     this.subjectClick = this.subjectClick.bind(this);
     this.state = {
-      courses: []
+      allCourses: {},
+      courses: {},
+      filters: {}
     };
   }
 
@@ -18,7 +21,7 @@ class Dashboard extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({ courses: props.courses });
+    this.setState({ allCourses: props.courses, courses: props.courses });
   }
 
   componentWillUnmount() {
@@ -27,24 +30,59 @@ class Dashboard extends React.Component {
 
   subjectClick(e) {
     e.preventDefault();
-    console.log(e.target.classList);
     if (e.target.classList.contains("tags-active")) {
       e.target.classList.remove("tags-active");
+      let newFilters = {};
+      let counter = 1;
+      Object.keys(this.state.filters).map((filter_indx) => {
+        if (this.state.filters[filter_indx] !== e.target.dataset.subject) {
+          newFilters[counter] = this.state.filters[filter_indx];
+          counter ++;
+        }
+      });
+      let filteredCourses = {};
+      let counter2 = 1;
+      Object.keys(this.state.allCourses).map((course_idx) => {
+        Object.values(this.state.allCourses[course_idx].subjects).map((x) => {
+          if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredCourses).includes(course_idx)) {
+            filteredCourses[counter2] = this.state.allCourses[course_idx];
+            counter2++;
+          }
+        });
+      });
+      console.log(newFilters);
+      if (Object.keys(newFilters).length === 0) {
+        this.setState({ courses: this.state.allCourses });
+        this.setState({ filters: newFilters });
+      } else {
+        this.setState({filters: newFilters});
+        this.setState({ courses: filteredCourses });
+      }
     } else {
       e.target.classList.add("tags-active");
       let filteredCourses = {};
       const filter = e.target.dataset.subject;
+      const newFilters = {};
+      let counter2 = 1;
+      Object.keys(this.state.filters).map((filter_indx) => {
+        newFilters[counter2] = this.state.filters[filter_indx];
+        counter2++;
+      });
+      newFilters[counter2] = filter;
+      this.setState({ filters: newFilters });
       let counter = 1;
-      Object.keys(this.state.courses).map((course_idx) => {
-        Object.values(this.state.courses[course_idx].subjects).map((x) => {
-          if (x.title === filter) {
-            filteredCourses[counter] = this.state.courses[course_idx];
+      Object.keys(this.state.allCourses).map((course_idx) => {
+        Object.values(this.state.allCourses[course_idx].subjects).map((x) => {
+          if (Object.values(newFilters).includes(x.title) && !Object.keys(filteredCourses).includes(course_idx)) {
+            filteredCourses[counter] = this.state.allCourses[course_idx];
             counter ++;
           }
         });
       });
+      console.log("FILTERED COURSES", filteredCourses);
       this.setState({ courses: filteredCourses });
     }
+    console.log("state", this.state.filters);
   }
   
   render() {
@@ -55,15 +93,21 @@ class Dashboard extends React.Component {
           <h3>My Courses</h3>
           <div className="course-or-quiz-list">
             <ul>
+              <ReactCSSTransitionGroup
+                transitionName="example"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}>
               {Object.keys(this.state.courses).map((course_indx) => {
                 let courseCardClassName = `course-or-quiz-card-${course_indx % 4}`;
                 return(
                 <div>
                     <li className={courseCardClassName}>{this.state.courses[course_indx].title}</li>
                     <div className="course-or-quiz-divider"></div>
-                </div>);
+                </div>
+                );
               }
-              )}
+            )}
+            </ReactCSSTransitionGroup>
             </ul>
           </div>
         </div>

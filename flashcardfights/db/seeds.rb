@@ -29,3 +29,136 @@ demo_users = User.create([
   }
 ])
 
+demo_courses = Course.create([
+  {
+    title: "Captain Kirk's Math Class",
+    educator_id: 1,
+  },
+  {
+    title: "4th Grade Algebra",
+    educator_id: 2
+  },
+  {
+    title: "5th Grade Calculus",
+    educator_id: 2
+  },
+  {
+    title: "Mysteries of Paint",
+    educator_id: 2
+  },
+  {
+    title: "Identifying Wood",
+    educator_id: 2
+  },
+  {
+    title: "Kanye 101",
+    educator_id: 1
+  }
+])
+
+demo_subjects = Subject.create([
+  {
+    title: "Math"
+  },
+  {
+    title: "Science"
+  },
+  {
+    title: "Paint"
+  },
+  {
+    title: "Woodworking"
+  },
+  {
+    title: "Cosmology"
+  },
+  {
+    title: "Cosmetology"
+  },
+])
+
+demo_course_subjects = CourseSubject.create([
+  {
+    course_id: demo_courses[0].id
+    subject_id: demo_subjects[0].id
+  },
+  {
+    course_id: demo_courses[1].id
+    subject_id: demo_subjects[0].id
+  },
+  {
+    course_id: demo_courses[2].id
+    subject_id: demo_subjects[0].id
+  },
+  {
+    course_id: demo_courses[1].id
+    subject_id: demo_subjects[1].id
+  },
+  {
+    course_id: demo_courses[4].id
+    subject_id: demo_subjects[3].id
+  },
+  {
+    course_id: demo_courses[3].id
+    subject_id: demo_subjects[2].id
+  },
+  {
+    course_id: demo_courses[4].id
+    subject_id: demo_subjects[4].id
+  },
+  {
+    course_id: demo_courses[5].id
+    subject_id: demo_subjects[4].id
+  },
+  {
+    course_id: demo_courses[5].id
+    subject_id: demo_subjects[5].id
+  },
+])
+
+demo_course_students = CourseStudents.create([
+  {
+    course_id: demo_users[2].id
+    student_id: demo_courses[0].id
+  },
+  {
+    course_id: demo_users[2].id
+    student_id: demo_courses[1].id
+  },
+  {
+    course_id: demo_users[2].id
+    student_id: demo_courses[2].id
+  },
+  {
+    course_id: demo_users[2].id
+    student_id: demo_courses[3].id
+  },
+  {
+    course_id: demo_users[2].id
+    student_id: demo_courses[4].id
+  },
+  {
+    course_id: demo_users[2].id
+    student_id: demo_courses[5].id
+  },
+  {
+    course_id: demo_users[3].id
+    student_id: demo_courses[0].id
+  },
+  {
+    course_id: demo_users[3].id
+    student_id: demo_courses[1].id
+  },
+  {
+    course_id: demo_users[3].id
+    student_id: demo_courses[2].id
+  },
+  {
+    course_id: demo_users[3].id
+    student_id: demo_courses[3].id
+  },
+  {
+    course_id: demo_users[3].id
+    student_id: demo_courses[4].id
+  },
+])

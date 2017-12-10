@@ -162,6 +162,8 @@ class Dashboard extends React.Component {
               )}
             </ul>
           </div>
+          <div className="tag-quiz-divider">
+          </div>
           <div className="quizzes">
               <h3>Quizzes</h3>
               <ul>

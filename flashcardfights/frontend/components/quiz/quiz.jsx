@@ -15,6 +15,13 @@ class Quiz extends React.Component {
     this.setState({question:this.state.question+1})
   }
 
+  
+  componentWillMount() {
+    this.props.getQuiz(this.props.match.params.quizId)
+    .then((quiz) => {this.setState({quiz: quiz});
+    }
+  )
+
   renderQuestion() {
     return(
       <SingleQuestion question={this.props.quiz.questions[this.state.question]}

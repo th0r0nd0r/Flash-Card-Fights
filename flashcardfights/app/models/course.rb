@@ -21,5 +21,8 @@ has_many :subjects, through: :course_subjects
 
 has_many :course_quizzes
 has_many :quizzes, through: :course_quizzes
+
+has_many :course_students
+has_many :students, through: :course_students
   
 end

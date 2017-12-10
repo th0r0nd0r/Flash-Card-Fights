@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :courses, only: [:new, :create, :index, :show, :update, :destroy]
     resources :quizzes, only: [:new, :create, :index, :show, :update, :destroy]
     resources :subjects, only: [:new, :create, :index, :show, :update, :destroy]
+    resources :questions, only: [:new, :create, :index, :show, :update, :destroy]
   end
 end

@@ -4,14 +4,13 @@ import { connect } from "react-redux";
 import { createChallenge } from "../../actions/challenge_actions";
 import User from "./user_show";
 
-const mapStateToProps = (state, { id, username, isEducator}, { match }) => ({
-  id, username, isEducator,
+const mapStateToProps = (state, { id, username, isEducator, quizId}) => ({
+  id, username, isEducator, quizId,
   currentUser: state.session.currentUser,
-  quizId: parseInt(match.params.quizId)
 });
 
 const mapDispatchToProps = dispatch => ({
-  createChallenge: challenge => dispatch(createChallenge(challenge));
+  createChallenge: challenge => dispatch(createChallenge(challenge))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(User);

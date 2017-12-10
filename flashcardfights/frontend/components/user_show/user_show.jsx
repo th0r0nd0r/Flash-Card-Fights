@@ -3,13 +3,18 @@ import React from 'react';
 class User extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    const challenge = {
-      challenger_id: this.props.currentUser,
-      challengee_id: this.props.id,
-      quiz_id: this.props.quizId
+    console.log("user show props: ", this.props);
+    const challenge = { challenge: 
+      {
+        challenger_id: this.props.currentUser.id,
+        challengee_id: this.props.id,
+        quiz_id: this.props.quizId
+      }
     };
     e.preventDefault();
     // console.log("clicked:", this.props.getSpot);
@@ -21,7 +26,7 @@ class User extends React.Component {
 
     return(
       <div className="user">
-        <h3 className="classmate-name">{username}</h3>
+        <h3 onClick={this.handleClick} className="classmate-name">{username}</h3>
       </div>
     );
   }

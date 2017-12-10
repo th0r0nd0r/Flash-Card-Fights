@@ -23,7 +23,7 @@ export const createCourse = course =>
 export const updateCourse = course =>
   $.ajax({
     method: "PATCH",
-    url: `api/courses/${course.course.id}`,
+    url: `api/courses/${course.id}`,
     data: course
   });
 

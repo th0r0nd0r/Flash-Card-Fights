@@ -8,6 +8,11 @@ class Quiz extends React.Component {
       keys: Object.values(this.props.quiz.questions),
       question: 0
     }
+    this.incrementQuestionCounter = this.incrementQuestionCounter.bind(this);
+  }
+
+  incrementQuestionCounter() {
+    this.setState({question:this.state.question+1})
   }
 
   
@@ -19,13 +24,14 @@ class Quiz extends React.Component {
 
   renderQuestion() {
     return(
-      <SingleQuestion question={this.props.quiz.questions[this.state.question]}/>
+      <SingleQuestion question={this.props.quiz.questions[this.state.question]}
+                      incrementQuestionCounter={this.incrementQuestionCounter}/>
     );
   }
 
   render() {
     return(
-      {this.renderQuestion()}
+      this.renderQuestion()
     );
   }
 }

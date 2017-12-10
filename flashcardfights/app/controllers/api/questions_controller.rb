@@ -1,5 +1,5 @@
 class Api::QuestionsController < ApplicationController
-  
+
   def create
     @question = Question.create(course_params)
     if @question.save!
@@ -8,7 +8,7 @@ class Api::QuestionsController < ApplicationController
       render @question.errors.full_messages, status: 422
     end
   end
-  
+
   def show
     @question = Question.find(params[:id])
     render "api/questions/show"
@@ -22,7 +22,7 @@ class Api::QuestionsController < ApplicationController
       render json: @question.errors.full_messages, status: 401
     end
   end
-  
+
   def destroy
     @question = Question.find(params[:id])
     if @question
@@ -33,9 +33,9 @@ class Api::QuestionsController < ApplicationController
   end
 
   private
-  
+
   def question_params
     params.require(:question).permit(:body, :author_id, :course_id)
   end
-  
+
 end

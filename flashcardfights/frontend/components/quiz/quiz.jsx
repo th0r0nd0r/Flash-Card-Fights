@@ -5,10 +5,17 @@ class Quiz extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keys: Object.values(this.props.quiz.questions)
+      keys: Object.values(this.props.quiz.questions),
       question: 0
     }
   }
+
+  
+  componentWillMount() {
+    this.props.getQuiz(this.props.match.params.quizId)
+    .then((quiz) => {this.setState({quiz: quiz});
+    }
+  )
 
   renderQuestion() {
     return(

@@ -1,6 +1,5 @@
 json.partial! "api/courses/course", course: @course
 
-# json.students @course.students.count
 json.students do
   @course.students.each do |student|
     json.set! student.id do

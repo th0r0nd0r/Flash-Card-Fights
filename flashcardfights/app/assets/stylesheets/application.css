@@ -223,7 +223,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
-  width: 15%;
+  width: 150px;
   padding: 5px;
   border: 1px solid gray;
   transition: all .2s ease-in-out;
@@ -248,4 +248,31 @@
   background-color: rgb(194, 113, 113);
   color: white;
   padding: 5px;
+}
+
+.tags_and_quizzes {
+  display: flex;
+}
+
+.quizzes li {
+  display: flex;
+  font-size: 20px;
+  font-weight: 900;
+  list-style: none;
+  border: 1px solid black;
+  padding: 40px;
+  height: 40px;
+  min-width: 300px;
+  max-width: 300px;
+  justify-content: center;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  
+}
+
+.quizzes li:hover {
+  background-color: rgb(223, 215, 215);
+  transform: scale(1.02);
+  /* color: white; */
 }

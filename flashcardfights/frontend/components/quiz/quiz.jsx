@@ -4,7 +4,7 @@ import SingleQuestion from './single_question';
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
-    // console.log("props: ", this.props)
+    console.log("props: ", this.props)
     this.state = {
       // keys: Object.values(this.props.quiz.questions),
       questions: [],
@@ -63,6 +63,7 @@ class Quiz extends React.Component {
   render() {
     console.log('current is ', this.state.current);
     console.log('questions length is ', this.state.questions.length);
+    console.log('quiz id is ', this.props.quiz.id);
     const quiz = Object.values(this.props.quiz)[0];
     if (quiz) {
       if (this.state.current !== this.state.questions.length) {
@@ -77,12 +78,18 @@ class Quiz extends React.Component {
           );
       } else {
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        console.log('object values of attemps is ', Object.values(this.state.attempts));
+        const score = this.state.attempts.reduce(reducer,0) / this.state.questions.length;
+        const attempt = {
+          user_id: this.props.currentUser,
+          quiz_id: this.props.match.params.quiz_id,
+          score: score
+        }
+        this.props.createQuizAttempt(attempt);
         return(
           <div className="quiz">
             <h1>{quiz.name}</h1>
               <div>
-                Congratulations, you completed the quiz. Your score was {this.state.attempts.reduce(reducer, 0) / this.state.questions.length}
+                Congratulations, you completed the quiz. Your score was {score}
               </div>
           </div>
         )

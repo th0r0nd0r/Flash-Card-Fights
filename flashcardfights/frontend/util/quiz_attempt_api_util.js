@@ -5,11 +5,11 @@ export const fetchQuizAttempt = (quizId, id) =>
     err: () => console.log("Error fetching quiz")
   });
 
-export const createQuizAttempt = (quizId, attempt) =>
+export const createQuizAttempt = (quiz_attempt) =>
   $.ajax({
     method: "POST",
-    url: `api/quizzes/${quizId}/quiz_attempts`,
-    data: attempt
+    url: `api/quizzes/${quiz_attempt.quizId}//quiz_attempts`,
+    data: {quiz_attempt}
   });
 
 export const deleteQuizAttempt = (quizId, id) =>

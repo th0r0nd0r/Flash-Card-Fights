@@ -94,7 +94,10 @@
   margin-bottom: 20px;
  }
 
-.splash {
+.splash button{
+  border-radius: 5px;
+  background-color: whitesmoke;
+  color: #02c896;
 }
 
 .splash img {

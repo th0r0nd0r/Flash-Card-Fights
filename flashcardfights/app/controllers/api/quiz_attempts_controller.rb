@@ -1,5 +1,5 @@
 class Api::QuizAttemptsController < ApplicationController
-  
+
   def create
     @quiz_attempt = QuizAttempt.create(quiz_attempt_params)
     if @quiz_attempt.save
@@ -8,7 +8,7 @@ class Api::QuizAttemptsController < ApplicationController
       render @quiz_attempt.errors.full_messages
     end
   end
-  
+
   def destroy
     @quiz_attempt = QuizAttempt.find(params[:id])
     if @quiz_attempt
@@ -18,7 +18,7 @@ class Api::QuizAttemptsController < ApplicationController
       render json: "Could not find quiz attempt to destroy"
     end
   end
-  
+
   def show
     @quiz_attempt = QuizAttempt.find(params[:id])
     if @quiz_attempt
@@ -28,10 +28,10 @@ class Api::QuizAttemptsController < ApplicationController
       render json: "Could not find quiz attempt to show"
     end
   end
-  
+
   private
-  
+
   def quiz_attempt_params
-    params.require(:quiz_attempt_params).permit(:quiz_id, :user_id, :score)
+    params.require(:quiz_attempt).permit(:quiz_id, :user_id, :score)
   end
 end

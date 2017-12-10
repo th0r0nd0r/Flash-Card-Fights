@@ -207,6 +207,7 @@ demo_quizzes = Quiz.create([
 ])
 
 QuizSubject.create({quiz_id: Quiz.first.id, subject_id: Subject.first.id})
+QuizSubject.create({quiz_id: Quiz.all[1].id, subject_id: Subject.all[2].id})
 
 demo_course_quizzes = CourseQuiz.create([
   {

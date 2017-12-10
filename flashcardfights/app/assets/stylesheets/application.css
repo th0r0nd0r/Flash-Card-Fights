@@ -215,7 +215,7 @@
 }
 
 .dash {
-  padding-left: 20px;
+  padding-left: 40px;
   font-size: 20px;
 }
 
@@ -262,8 +262,8 @@
   border: 1px solid black;
   padding: 40px;
   height: 40px;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 350px;
+  max-width: 350px;
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
@@ -285,4 +285,25 @@
 .header-logo a {
   color: black;
   text-decoration: none;
+}
+
+.myButton {
+  text-decoration: none;
+}
+
+.tags ul, .quizzes ul {
+  padding: 0;
+}
+
+.tag-quiz-divider {
+  width: 50px;
+}
+
+.quizzes ul {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.quizzes {
+  width: 1000px;
 }

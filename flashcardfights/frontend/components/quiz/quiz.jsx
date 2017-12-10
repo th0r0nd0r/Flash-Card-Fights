@@ -18,6 +18,7 @@ class Quiz extends React.Component {
 
   componentWillMount() {
     this.props.fetchQuiz(this.props.match.params.quiz_id);
+    console.log('quiz id is', this.props.match.params.quiz_id);
   }
 
   renderQuestion() {

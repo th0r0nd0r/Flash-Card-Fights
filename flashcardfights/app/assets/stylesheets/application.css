@@ -223,9 +223,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
-  /*  */
-  width: 150px;
-  /*  */
+  width: 15%;
   padding: 5px;
   border: 1px solid gray;
   transition: all .2s ease-in-out;
@@ -246,39 +244,8 @@
   color: white;
 }
 
-.tags_and_quizzes {
-  display: flex;
-  flex-direction: row;
-}
-
-
-.quizzes li {
-  display: flex;
-  font-size: 20px;
-  font-weight: 900;
-  list-style: none;
-  border: 1px solid black;
-  padding: 20px 40px;
-  min-height: 40px;
-  max-height: 40px;
-  min-width: 300px;
-  max-width: 300px;
-  justify-content: center;
-  margin-right: 20px;
-  cursor: pointer;
-  transition: all .2s ease-in-out;
-  
-}
-
-.quizzes li:hover {
-  background-color: rgb(223, 215, 215);
-  transform: scale(1.02);
-  /* color: white; */
-}
-
 .challenge-button {
   background-color: rgb(194, 113, 113);
   color: white;
   padding: 5px;
-  cursor: pointer;
 }

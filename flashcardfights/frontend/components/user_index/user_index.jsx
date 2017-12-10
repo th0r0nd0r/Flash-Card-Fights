@@ -6,8 +6,8 @@ class UserIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      classmates: []
-    }
+      classmates: {}
+    };
   }
 
   componentDidMount() {

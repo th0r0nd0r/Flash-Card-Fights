@@ -22,18 +22,17 @@ class Quiz extends React.Component {
   recordAttemptScore(score) {
     let arr = this.state.attempts;
     arr.push(score);
-    console.log("what are props", this.props)
-    if(arr.length === this.state.questions.length) {
-      this.props.createQuizAttempt(Object.values(this.props.quiz)[0].id);
+    if (arr.length === this.state.questions.length) {
+      this.props.createQuizAttempt(this.props.quiz);
     }
     this.setState({
       attempts: arr
-      }
+    }
     );
   }
 
   componentWillMount() {
-    this.setState({current:0});
+    this.setState({ current: 0 });
   }
 
   componentDidMount() {
@@ -48,12 +47,12 @@ class Quiz extends React.Component {
     const questions = this.state.questions;
     console.log("QUESTIONS: ", questions);
     if (questions.length !== 0) {
-      return(
+      return (
         <SingleQuestion question={questions[this.state.current]}
-                        incrementQuestionCounter={this.incrementQuestionCounter}
-                        createQuestionAttempt={this.props.createQuestionAttempt}
-                        userId={this.props.currentUser}
-                        recordAttemptScore={this.recordAttemptScore}/>
+          incrementQuestionCounter={this.incrementQuestionCounter}
+          createQuestionAttempt={this.props.createQuestionAttempt}
+          userId={this.props.currentUser}
+          recordAttemptScore={this.recordAttemptScore} />
       );
     } else {
       return (<div></div>);
@@ -67,30 +66,30 @@ class Quiz extends React.Component {
     const quiz = Object.values(this.props.quiz)[0];
     if (quiz) {
       if (this.state.current !== this.state.questions.length) {
-        return(
+        return (
           <div className="quiz">
             <h1>{quiz.name}</h1>
             <div className="quiz-divider"></div>
-              <div className="single-question">
-                {this.renderQuestion()}
-              </div>
+            <div className="single-question">
+              {this.renderQuestion()}
             </div>
-          );
+          </div>
+        );
       } else {
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        const score = this.state.attempts.reduce(reducer,0) / this.state.questions.length;
+        const score = this.state.attempts.reduce(reducer, 0) / this.state.questions.length;
         const attempt = {
           user_id: this.props.currentUser,
           quiz_id: this.props.match.params.quiz_id,
           score: score
         }
         this.props.createQuizAttempt(attempt);
-        return(
+        return (
           <div className="quiz">
             <h1>{quiz.name}</h1>
-              <div>
-                Congratulations, you completed the quiz. Your score was {score}
-              </div>
+            <div>
+              Congratulations, you completed the quiz. Your score was {score}
+            </div>
           </div>
         )
       }

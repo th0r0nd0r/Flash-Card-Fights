@@ -6,13 +6,18 @@ import ReactDOM from 'react-dom';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      courses: []
+    };
   }
 
   componentDidMount() {
-  }
+    this.props.getCourses();
 
+  }
+  
   render() {
+    console.log(this.props.courses);
     return (
       <div className="dash">
         <h2>DASHBOARD</h2>
@@ -20,11 +25,14 @@ class Dashboard extends React.Component {
           <h3>My Courses</h3>
           <div className="course-list">
             <ul>
-              <li>Course1</li>
-              <div className="course-divider"></div>
-              <li>Course2</li>
-              <div className="course-divider"></div>
-              <li>Course3</li>
+              {Object.keys(this.props.courses).map((course_indx) => {
+                return(
+                <div>
+                  <li>{this.props.courses[course_indx].title}</li>
+                  <div className="course-divider"></div>
+                </div>);
+              }
+              )}
             </ul>
           </div>
         </div>

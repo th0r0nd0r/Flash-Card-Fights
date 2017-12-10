@@ -98,16 +98,25 @@
 .course-list ul {
   display: flex;
   flex-direction: row;
+  flex-flow: wrap;
+  margin-left: 10%;
+  width: 80%;
 }
 
 .course-list li {
   list-style: none;
   border: 1px solid black;
   padding: 40px;
+  min-height: 100px;
+  min-width: 140px;
+  max-width: 140px;
+  justify-content: center;
+  margin-right: 20px;
 }
 
 .course-divider {
   width: 20px;
+  height: 20px;
 }
 
 .tags li {

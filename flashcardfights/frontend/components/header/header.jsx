@@ -41,10 +41,10 @@ class Header extends React.Component {
     return (
       <div className="login-header">
         <AppModal action={SigninFormContainer} className="login-button" />
+        <div className="divider"></div>
         <AppModal className="demo-button" action={SigninFormContainer} demo={true} />
         <div className="divider"></div>
         <AppModal action={SignupFormContainer} className="signup-button" />
-        <p>HERE TO JOIN?</p>
       </div>
     );
   }

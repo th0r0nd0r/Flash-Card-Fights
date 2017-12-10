@@ -48517,14 +48517,10 @@ var Header = function (_React$Component) {
         'div',
         { className: 'login-header' },
         _react2.default.createElement(_Modal2.default, { action: _signin_form_container2.default, className: 'login-button' }),
+        _react2.default.createElement('div', { className: 'divider' }),
         _react2.default.createElement(_Modal2.default, { className: 'demo-button', action: _signin_form_container2.default, demo: true }),
         _react2.default.createElement('div', { className: 'divider' }),
-        _react2.default.createElement(_Modal2.default, { action: _signup_form_container2.default, className: 'signup-button' }),
-        _react2.default.createElement(
-          'p',
-          null,
-          'HERE TO JOIN?'
-        )
+        _react2.default.createElement(_Modal2.default, { action: _signup_form_container2.default, className: 'signup-button' })
       );
     }
   }, {
@@ -49580,8 +49576,8 @@ var Greeting = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        'YOOOOOO'
+        { className: 'splash' },
+        _react2.default.createElement('img', { src: 'http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2522/v1512863717/study_tszv05.jpg' })
       );
     }
   }]);

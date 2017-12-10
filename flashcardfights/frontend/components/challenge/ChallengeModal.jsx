@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import SignInFormContainer from './session_form/signin_form_container';
-import SignupFormContainer from './session_form/signup_form_container';
-import UserIndexContainer from './user_index/user_index_container';
+import SignInFormContainer from '../session_form/signin_form_container';
+import SignupFormContainer from '../session_form/signup_form_container';
+import UserIndexContainer from '../user_index/user_index_container';
 const customStyles = {
   content: {
     top: '50%',
@@ -15,9 +15,10 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     padding: '0',
     width: '30%',
-    height: '50%',
+    height: '70%',
     'borderRadius': '5px',
-    opacity: '0.9'
+    opacity: '0.9',
+    backgroundColor: '#c6f2e5'
   }
 };
 

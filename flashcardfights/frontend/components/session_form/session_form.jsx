@@ -76,10 +76,6 @@ class SessionForm extends React.Component {
     if (this.props.text === "Demo Log In") {
       return (
         <div className="session-form-div">
-          <div className="session-exit-button-container">
-            <img src='http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_54/v1506464706/9982_23980_cancel_close_exit_1_p3x21t.png'
-              onClick={this.props.closeModal}></img>
-          </div>
           <h1>{this.props.text}</h1>
           <form onSubmit={this.handleSubmit} className="session-form">
             {this.showErrors()}
@@ -93,7 +89,6 @@ class SessionForm extends React.Component {
                 <p>{this.state.username}</p>
               </Typist>
             </div>
-            <div className="height-divider"></div>
             <div className="session-inputs-demo">
               <Typist
                 className="TypistExample-header"
@@ -103,7 +98,6 @@ class SessionForm extends React.Component {
                 <p>********</p>
               </Typist>
             </div>
-            <div className="height-divider"></div>
             <input type="submit" value="Submit" className="submit-session" />
             {this.props.text === "Demo Log In" ? this.submitDemo() : this.demoLogin()}
           </form>

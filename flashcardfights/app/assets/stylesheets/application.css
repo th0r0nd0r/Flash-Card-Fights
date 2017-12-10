@@ -15,7 +15,8 @@
  */
 
  body {
-   font-family: 'Spectral SC';
+   /* font-family: 'Spectral SC'; */
+   font-family: 'Eczar';
    margin: 0;
    background-color: rgb(255, 255, 255);
  }

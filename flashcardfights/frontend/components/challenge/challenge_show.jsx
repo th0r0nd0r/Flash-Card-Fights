@@ -14,10 +14,11 @@ class ChallengeShow extends React.Component {
   
 
   render() {
+    console.log("challenge show props: ", this.props);
     return (
       <div className="challenge">
         <h1>CHALLENGE YER MATES</h1>
-        <AppModal action={UserIndexContainer} className="challenge-button" />
+        <AppModal action={UserIndexContainer} quizId={this.props.quizId} className="challenge-button" />
       </div>
     );
   }

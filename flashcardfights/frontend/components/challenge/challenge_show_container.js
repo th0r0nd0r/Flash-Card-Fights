@@ -11,9 +11,10 @@ import { selectChallenge } from "../../reducers/selectors";
 import { selectQuiz } from "../../reducers/selectors";
 
 
-const mapStateToProps = (state, { match }) => {
-   const quizId = parseInt(match.params.quizId);
-   const quiz = selectQuiz(state.entities, match.params.quizId);
+const mapStateToProps = (state, props) => {
+  console.log("show container props: ", props);
+   const quizId = parseInt(props.match.params.quiz_id);
+   const quiz = selectQuiz(state.entities, props.match.params.quiz_id);
   //  const currentUser = state.session.currentUser;
   return {
     quizId: quizId,

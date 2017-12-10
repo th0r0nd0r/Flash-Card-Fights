@@ -9,6 +9,8 @@ class UserIndex extends React.Component {
     this.state={
       classmates: {}
     };
+
+    this.classmateList = this.classmateList.bind(this);
   }
 
   componentDidMount() {
@@ -21,11 +23,13 @@ class UserIndex extends React.Component {
     if (mates.length > 0) {
       return mates.map(mate => {
         return(
+          <link to="/">
           <User 
             id={mate.id}
             username={mate.username}
             isEducator={mate.is_educator}
           />
+          </link>
         );
       });
     }
@@ -34,8 +38,10 @@ class UserIndex extends React.Component {
   render () {
     console.log("PROPS: ", this.props);
     return(
-    <div>
-
+    <div className="user-index">
+      <div className="users">
+        {this.classmateList()}
+      </div>
     </div>);
   }
 }

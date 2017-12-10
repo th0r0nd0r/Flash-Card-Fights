@@ -49572,12 +49572,35 @@ var Greeting = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
+    key: 'signUpClick',
+    value: function signUpClick(e) {
+      e.preventDefault();
+      var signup = document.getElementsByClassName("signup-button");
+      console.log(signup);
+      signup[0].click();
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         { className: 'splash' },
-        _react2.default.createElement('img', { src: 'http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2245/v1512865824/black-girls-code_tlj07k.jpg' })
+        _react2.default.createElement('img', { src: 'http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2245/v1512865824/black-girls-code_tlj07k.jpg' }),
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Flashcard Fights'
+        ),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Fight against your classmates!'
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.signUpClick, className: 'large-signup' },
+          'SIGN UP'
+        )
       );
     }
   }]);

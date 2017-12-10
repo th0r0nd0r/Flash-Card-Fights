@@ -10,8 +10,8 @@ class Api::QuestionsController < ApplicationController
   end
   
   def show
-    @quiz = Quiz.find(params[:id])
-    render "api/quizzes/show"
+    @question = Question.find(params[:id])
+    render "api/questions/show"
   end
 
   def update

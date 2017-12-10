@@ -4,14 +4,29 @@ import QuestionAnswer from './question_answer';
 class SingleQuestion extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      start_time: ""
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderAnswers = this.renderAnswers.bind(this);
   }
 
   handleSubmit() {
-    // do some action stuff here like dispatch
-    // action to create question attempt and .then
-    this.props.incrementQuestionCounter();
+    const finish_time = Date.now()
+
+    const attempt = {
+      score: finish_time - this.state.start_time,
+      question_id: this.props.question.id,
+      user_id: this.props.userId
+    }
+
+    this.props.createQuestionAttempt(attempt).then(() =>
+      this.props.incrementQuestionCounter()
+    );
+  }
+
+  componentDidMount() {
+    this.setState({start_time: Date.now()});
   }
 
   renderAnswers() {

@@ -10,11 +10,13 @@ class Api::QuizzesController < ApplicationController
   end
 
   def index
+    
     if params[:course_id]
       @quizzes = Quiz.find_by(course_id: params[:course_id])
     else
       @quizzes = Quiz.all
     end
+
     if @quizzes
       render "api/quizzes/index"
     else

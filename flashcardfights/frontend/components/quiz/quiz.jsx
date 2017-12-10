@@ -32,7 +32,9 @@ class Quiz extends React.Component {
     if (questions.length !== 0) {
       return(
         <SingleQuestion question={questions[this.state.current]}
-                        incrementQuestionCounter={this.incrementQuestionCounter}/>
+                        incrementQuestionCounter={this.incrementQuestionCounter}
+                        createQuestionAttempt={this.props.createQuestionAttempt}
+                        userId={this.props.currentUser}/>
       );
     } else {
       return (<div></div>);

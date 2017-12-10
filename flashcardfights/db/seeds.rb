@@ -79,86 +79,86 @@ demo_subjects = Subject.create([
 
 demo_course_subjects = CourseSubject.create([
   {
-    course_id: demo_courses[0].id
+    course_id: demo_courses[0].id,
     subject_id: demo_subjects[0].id
   },
   {
-    course_id: demo_courses[1].id
+    course_id: demo_courses[1].id,
     subject_id: demo_subjects[0].id
   },
   {
-    course_id: demo_courses[2].id
+    course_id: demo_courses[2].id,
     subject_id: demo_subjects[0].id
   },
   {
-    course_id: demo_courses[1].id
+    course_id: demo_courses[1].id,
     subject_id: demo_subjects[1].id
   },
   {
-    course_id: demo_courses[4].id
+    course_id: demo_courses[4].id,
     subject_id: demo_subjects[3].id
   },
   {
-    course_id: demo_courses[3].id
+    course_id: demo_courses[3].id,
     subject_id: demo_subjects[2].id
   },
   {
-    course_id: demo_courses[4].id
+    course_id: demo_courses[4].id,
     subject_id: demo_subjects[4].id
   },
   {
-    course_id: demo_courses[5].id
+    course_id: demo_courses[5].id,
     subject_id: demo_subjects[4].id
   },
   {
-    course_id: demo_courses[5].id
+    course_id: demo_courses[5].id,
     subject_id: demo_subjects[5].id
   },
 ])
 
-demo_course_students = CourseStudents.create([
+demo_course_students = CourseStudent.create([
   {
-    course_id: demo_users[2].id
+    course_id: demo_users[2].id,
     student_id: demo_courses[0].id
   },
   {
-    course_id: demo_users[2].id
+    course_id: demo_users[2].id,
     student_id: demo_courses[1].id
   },
   {
-    course_id: demo_users[2].id
+    course_id: demo_users[2].id,
     student_id: demo_courses[2].id
   },
   {
-    course_id: demo_users[2].id
+    course_id: demo_users[2].id,
     student_id: demo_courses[3].id
   },
   {
-    course_id: demo_users[2].id
+    course_id: demo_users[2].id,
     student_id: demo_courses[4].id
   },
   {
-    course_id: demo_users[2].id
+    course_id: demo_users[2].id,
     student_id: demo_courses[5].id
   },
   {
-    course_id: demo_users[3].id
+    course_id: demo_users[3].id,
     student_id: demo_courses[0].id
   },
   {
-    course_id: demo_users[3].id
+    course_id: demo_users[3].id,
     student_id: demo_courses[1].id
   },
   {
-    course_id: demo_users[3].id
+    course_id: demo_users[3].id,
     student_id: demo_courses[2].id
   },
   {
-    course_id: demo_users[3].id
+    course_id: demo_users[3].id,
     student_id: demo_courses[3].id
   },
   {
-    course_id: demo_users[3].id
+    course_id: demo_users[3].id,
     student_id: demo_courses[4].id
   },
 ])

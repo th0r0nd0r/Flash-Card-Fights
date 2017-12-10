@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210003800) do
+ActiveRecord::Schema.define(version: 20171210020202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20171210003800) do
     t.integer "educator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["educator_id"], name: "index_courses_on_educator_id", unique: true
+    t.index ["educator_id"], name: "index_courses_on_educator_id"
   end
 
   create_table "question_attempts", force: :cascade do |t|
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20171210003800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_educator"
+    t.string "img_url", default: "http://food.fnr.sndimg.com/content/dam/images/food/editorial/talent/guy-fieri/FN-TalentAvatar-Guy-Fieri-800x800.jpg.rend.hgtvcom.616.616.suffix/1457720995801.jpeg", null: false
   end
 
 end

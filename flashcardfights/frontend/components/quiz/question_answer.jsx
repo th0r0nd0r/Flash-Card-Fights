@@ -10,6 +10,7 @@ class QuestionAnswer extends React.Component {
     return(
       <div>
         <p>{this.props.answer.body}</p>
+          <button onClick={this.props.handleSubmit}>Select this answer</button>
       </div>
     );
   }

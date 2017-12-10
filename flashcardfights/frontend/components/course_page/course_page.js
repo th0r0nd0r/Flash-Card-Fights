@@ -7,7 +7,7 @@ class CoursePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      course: null
+      course: {}
     };
   }
 
@@ -31,7 +31,7 @@ class CoursePage extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({ course: null });
+    this.setState({ course: {} });
   }
 
   render() {
@@ -39,7 +39,7 @@ class CoursePage extends React.Component {
     console.log("PROPS: ", this.props.course);
     const course = Object.values(this.props.course)[0]; //this.state.course;
     if (course) {
-      console.log("course quizzes array", Object.values(course.quizzes));
+      console.log("course quizzes array", "------");
       return (
         <div className="dash">
           <h2>{course.title}</h2>
@@ -47,7 +47,7 @@ class CoursePage extends React.Component {
             <h3>Course Quizzes</h3>
             <div className="course-or-quiz-list">
               <ul>
-                {Object.values(course.quizzes).map((quiz, idx) => {
+                {(course.quizzes) ? Object.values(course.quizzes).map((quiz, idx) => {
                   let quizCardClassName = `course-or-quiz-card-${idx % 4}`;
                   console.log("QUIZ: ",quiz);
                   return (
@@ -56,7 +56,7 @@ class CoursePage extends React.Component {
                       <div className="course-or-quiz-divider"></div>
                     </div>);
                 }
-                )}
+                ): ""}
               </ul>
             </div>
           </div>

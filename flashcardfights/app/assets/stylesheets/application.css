@@ -114,6 +114,11 @@
   width: 80%;
 }
 
+.course-or-quiz-list a {
+  text-decoration: none;
+  color: black;
+}
+
 .course-or-quiz-card-0 {
   background-image: url(http://res.cloudinary.com/dfafbqoxx/image/upload/v1512885720/Screen_Shot_2017-12-09_at_10.00.36_PM_atoivx.png);
   background-size: 150%;

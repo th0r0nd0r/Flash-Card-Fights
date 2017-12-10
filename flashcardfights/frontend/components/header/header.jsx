@@ -20,10 +20,17 @@ class Header extends React.Component {
   loggedin() {
     return (
       <div className="logout-header">
-        <div className="button-container">
-          <p className="hello-user">HELLO {this.props.user.username}</p>
-          <div className="divider"></div>
-          <Link to="#" className="myButton" onClick={this.logout}>Log Out</Link>
+        <div className="header-left">
+          <div className="header-logo">
+            <p className="header-logo-text">FCF</p>
+          </div>
+        </div>
+        <div className="header-right">
+          <div className="button-container">
+            <p className="hello-user">HELLO {this.props.user.username}</p>
+            <div className="divider"></div>
+            <Link to="#" className="myButton" onClick={this.logout}>Log Out</Link>
+          </div>
         </div>
       </div>
     );

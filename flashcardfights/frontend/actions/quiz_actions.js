@@ -9,9 +9,9 @@ export const receiveQuizzes = quizzes => ({
   quizzes
 });
 
-export const receiveQuiz = Quiz => ({
+export const receiveQuiz = quiz => ({
   type: RECEIVE_QUIZ,
-  Quiz
+  quiz
 });
 
 export const receiveErrors = errors => ({

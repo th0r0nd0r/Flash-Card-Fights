@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import questions from "./questions_reducer";
-import quizAttempts from './quiz_attempts_reducer';
+import questionsReducer from "./questions_reducer";
+import quizAttemptsReducer from './quiz_attempts_reducer';
 import quiz from "./quiz_reducer";
 
 import { RECEIVE_QUIZ, RECEIVE_QUIZZES } from "../actions/quiz_actions";
@@ -14,6 +14,7 @@ const quizzesReducer = (state = {}, action) => {
     case RECEIVE_QUIZZES:
       return action.quizzes;
     case RECEIVE_QUIZ:
+      console.log(action)
       const newQuiz = { [action.quiz.id]: action.quiz };
       return merge({}, state, newQuiz);
     default:
@@ -23,7 +24,7 @@ const quizzesReducer = (state = {}, action) => {
 
 export default combineReducers({
   quizzes: quizzesReducer,
-  quizAttempts,
-  questions,
-  quiz
+  quizAttempts: quizAttemptsReducer,
+  questions: questionsReducer,
+  // quiz
 });

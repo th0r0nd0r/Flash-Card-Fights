@@ -31,6 +31,9 @@ class Quiz extends React.Component {
 
   render() {
     return(
+      <div>
+        
+      </div>
       this.renderQuestion()
     );
   }

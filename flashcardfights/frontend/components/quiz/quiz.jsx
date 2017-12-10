@@ -18,9 +18,8 @@ class Quiz extends React.Component {
   
   componentWillMount() {
     this.props.getQuiz(this.props.match.params.quizId)
-    .then((quiz) => {this.setState({quiz: quiz});
-    }
-  )
+      .then((quiz) => {this.setState({quiz: quiz});});
+  }
 
   renderQuestion() {
     return(
@@ -31,12 +30,14 @@ class Quiz extends React.Component {
 
   render() {
     return(
-      <div>
-        
+      <div className="quiz">
+        <div className="single-question">
+          {this.renderQuestion()}
+        </div>
       </div>
-      this.renderQuestion()
     );
   }
 }
+
 
 export default Quiz;

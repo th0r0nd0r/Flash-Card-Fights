@@ -9,16 +9,14 @@ class QuestionAnswer extends React.Component {
     console.log("I'M AN ANSWER: ", this.props.answer);
     if (this.props.answer.is_correct) {
       return(
-        <div>
-          <p>{this.props.answer.body}</p>
-          <button onClick={this.props.handleCorrectSubmit}>Select this answer</button>
+        <div className="indiv-question">
+          <button onClick={this.props.handleCorrectSubmit}>{this.props.answer.body}</button>
         </div>
       );
     } else {
       return(
-        <div>
-          <p>{this.props.answer.body}</p>
-          <button onClick={this.props.handleIncorrectSubmit}>Select this answer</button>
+        <div className="indiv-question">
+          <button onClick={this.props.handleIncorrectSubmit}>{this.props.answer.body}</button>
         </div>
       );
     }

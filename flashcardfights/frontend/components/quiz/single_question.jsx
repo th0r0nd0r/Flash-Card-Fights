@@ -54,7 +54,7 @@ class SingleQuestion extends React.Component {
     let answers = Object.values(this.props.question.answers);
     console.log(answers);
     return(
-      <div>
+      <div className="answers">
         { answers.map((answer, idx) => <QuestionAnswer key={idx}
                                                        answer={answer}
                                                        handleCorrectSubmit={this.handleCorrectSubmit}

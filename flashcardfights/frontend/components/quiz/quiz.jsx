@@ -65,6 +65,7 @@ class Quiz extends React.Component {
         return(
           <div className="quiz">
             <h1>{quiz.name}</h1>
+            <div className="quiz-divider"></div>
               <div className="single-question">
                 {this.renderQuestion()}
               </div>

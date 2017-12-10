@@ -307,3 +307,40 @@
 .quizzes {
   width: 1000px;
 }
+
+.quiz {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-divider {
+  height: 50px;
+  width: 50px;
+}
+
+.single-question h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.indiv-question {
+  display: flex;
+}
+
+.indiv-question button {
+  padding: 20px 80px;
+  margin: 10px 0;
+  max-width: 168px;
+  min-width: 168px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}

@@ -22,7 +22,7 @@ const customStyles = {
   }
 };
 
-class AppModal extends React.Component {
+class ChallengeModal extends React.Component {
   constructor(props) {
     super(props);
 
@@ -88,4 +88,4 @@ class AppModal extends React.Component {
   }
 }
 
-export default AppModal;
+export default ChallengeModal;

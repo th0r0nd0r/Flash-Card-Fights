@@ -1,4 +1,4 @@
-import * as APIUtil from "../util/Quiz_api_util";
+import * as APIUtil from "../util/quiz_api_util";
 
 export const RECEIVE_QUIZZES = "RECEIVE_QUIZZES";
 export const RECEIVE_QUIZ = "RECEIVE_QUIZ";

@@ -24,7 +24,7 @@ class Greeting extends React.Component {
     return (
       <div className="splash">
         <img src="http://res.cloudinary.com/ddgt25kwb/image/upload/c_scale,w_2245/v1512865824/black-girls-code_tlj07k.jpg"/>
-        <h3>Flashcard Fights</h3>
+        <h3 className="splash-title">Flashcard Fights</h3>
         <h4>Fight against your classmates!</h4>
         <button onClick={this.signUpClick} className="large-signup">Sign Up</button>
       </div>);

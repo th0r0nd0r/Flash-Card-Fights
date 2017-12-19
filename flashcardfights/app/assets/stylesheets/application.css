@@ -107,11 +107,12 @@
 
 .splash h3 {
   /* font-family: 'Roboto', sans-serif; */
-  font-size: 40px;
+  font-size: 50px;
   color: white;
   position: absolute;
   bottom: 600px;
   left: 120px;
+  top: 50px;
 }
 
 .my-courses h3{
@@ -125,6 +126,7 @@
   position: absolute;
   bottom: 500px;
   left: 120px;
+  top: 140px;
 }
 
 .large-signup {
@@ -133,7 +135,8 @@
   color: black;
   position: absolute;
   bottom: 400px;
-  left: 220px;
+  left: 240px;
+  margin-top: 100px;
   cursor: pointer;
 }
 
@@ -462,4 +465,9 @@
 
 .challenge a {
   font-size: 30px;
+}
+
+.splash-title {
+  /* margin-top: 20px; */
+  /* padding-top: 20px; */
 }

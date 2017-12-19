@@ -1,6 +1,6 @@
 import React from "react";
 import UserIndexContainer from "../user_index/user_index_container";
-import Modal from 'React-Modal';
+import Modal from 'react-modal';
 import ChallengeModal from "./ChallengeModal.jsx";
 import Link from 'react-router-dom';
 

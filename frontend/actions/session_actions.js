@@ -5,9 +5,12 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 
 export const signup = user => dispatch => (
-  SessionAPIUtil.signup(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), error => {
+  SessionAPIUtil.signup(user).then(user => {
+    console.log(user)
+    return(
+      dispatch(receiveCurrentUser(user))
+    );
+  }, error => {
     return dispatch(receiveErrors(error.responseJSON));
   }
   )

@@ -49,6 +49,7 @@ class SessionForm extends React.Component {
   }
 
   showErrors() {
+    console.log("STATE: ", this.state)
     return (
       <ul className="errors-messages">
         {this.props.errors.map((error) => (

@@ -1,4 +1,5 @@
 class Api::QuizzesController < ApplicationController
+  before_action :verify_is_educator, only: [:create, :update, :destroy]
 
   def create
     @quiz = Quiz.create(quizzes_params)

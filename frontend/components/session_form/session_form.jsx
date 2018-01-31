@@ -12,7 +12,8 @@ class SessionForm extends React.Component {
 
     this.state = {
       username: this.props.user.username,
-      password: this.props.user.password
+      password: this.props.user.password,
+      is_educator: false
     };
   }
 
@@ -24,7 +25,11 @@ class SessionForm extends React.Component {
 
   update(field) {
     return (e) => {
-      this.setState({ [field]: e.target.value });
+      if(e.target.type == 'checkbox') {
+        this.setState({ [field]: e.target.checked });
+      } else {
+        this.setState({ [field]: e.target.value });
+      }
     };
   }
 
@@ -114,6 +119,7 @@ class SessionForm extends React.Component {
             <div className="height-divider"></div>
             <input type="password" onChange={this.update("password")}
               placeholder="Password" className="session-inputs" value={this.state.password} />
+            <label><input type="checkbox" onChange={this.update("is_educator")} value={this.state.is_educator}/> Sign up as an educator.</label>
             <div className="height-divider"></div>
             <input type="submit" value="Submit" className="submit-session" />
             {this.props.text === "Demo Log In" ? this.submitDemo() : this.demoLogin()}
